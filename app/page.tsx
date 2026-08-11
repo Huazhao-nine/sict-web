@@ -1,18 +1,11 @@
 import type { Metadata } from "next";
+import { SiteFooter, SiteHeader } from "./components/site-shell";
 
 export const metadata: Metadata = {
   title: "沈阳计算所报考指南｜2026 招生、初试与复试数据",
   description:
     "学生公益整理的中国科学院沈阳计算技术研究所报考指南，汇总招生专业、初试科目、复试规则与历年录取数据。",
 };
-
-const navItems = [
-  ["报考概览", "#overview"],
-  ["初试科目", "#subjects"],
-  ["录取数据", "#data"],
-  ["复试准备", "#reexam"],
-  ["资料入口", "#resources"],
-];
 
 const scoreBands = [
   { label: "390+", interviewed: 1, admitted: 1 },
@@ -41,25 +34,7 @@ const experienceItems = [
 export default function Home() {
   return (
     <main>
-      <header className="site-header">
-        <a className="brand" href="#top" aria-label="返回首页顶部">
-          <span className="brand-mark">沈</span>
-          <span>
-            <strong>沈计指南</strong>
-            <small>学生公益整理 · 非官方网站</small>
-          </span>
-        </a>
-        <nav className="desktop-nav" aria-label="主导航">
-          {navItems.map(([label, href]) => (
-            <a href={href} key={href}>
-              {label}
-            </a>
-          ))}
-        </nav>
-        <a className="header-cta" href="#resources">
-          查看资料 <span aria-hidden="true">↗</span>
-        </a>
-      </header>
+      <SiteHeader />
 
       <section className="hero" id="top">
         <div className="hero-grid" aria-hidden="true" />
@@ -223,6 +198,9 @@ export default function Home() {
             </div>
             <p className="chart-caption">注：分数段数据不含专项计划；“录取”按拟录取名单统计。初试分数只是结果的一部分，复试仍会改变排序。</p>
           </article>
+          <a className="data-archive-link" href="/data">
+            <span><b>2024—2026</b> 打开历年录取数据档案</span><strong>查看三年对照 ↗</strong>
+          </a>
         </div>
       </section>
 
@@ -281,14 +259,14 @@ export default function Home() {
         </div>
         <div className="experience-list">
           {experienceItems.map((item, index) => (
-            <article key={`${item.year}-${item.title}`}>
+            <a href={`/experiences#year-${item.year}`} key={`${item.year}-${item.title}`}>
               <span className="experience-index">{String(index + 1).padStart(2, "0")}</span>
               <div><span>{item.year} · {item.tag}</span><h3>{item.title}</h3></div>
               <span className="experience-arrow" aria-hidden="true">↗</span>
-            </article>
+            </a>
           ))}
         </div>
-        <div className="coming-soon"><span>资料库下一步</span><p>将现有 2018—2026 年经验文档整理为可搜索、可按年份筛选的文章页。</p></div>
+        <a className="coming-soon" href="/experiences"><span>查看完整归档</span><p>现已按年份和阶段整理 2018—2026 年经验文档目录。</p><strong>进入资料库 ↗</strong></a>
       </section>
 
       <section className="resources-section" id="resources">
@@ -305,9 +283,9 @@ export default function Home() {
             <a href="/downloads/sict-2026-data-report.pdf">
               <span><i>PDF</i><b>2026 数据报告 2.0</b><small>复试、录取、分数段与毕业去向</small></span><strong>下载 ↗</strong>
             </a>
-            <div>
-              <span><i>XLSX</i><b>2024—2026 录取数据</b><small>用于本站统计，公开页面统一脱敏</small></span><strong>整理中</strong>
-            </div>
+            <a href="/data">
+              <span><i>XLSX</i><b>2024—2026 录取数据</b><small>用于本站统计，公开页面统一脱敏</small></span><strong>查看 ↗</strong>
+            </a>
           </div>
         </div>
       </section>
@@ -335,11 +313,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer>
-        <div className="footer-brand"><span className="brand-mark">沈</span><div><strong>沈计指南</strong><small>让信息透明一点，让选择从容一点。</small></div></div>
-        <div className="footer-meta"><p>公益维护 · 非盈利 · 非官方网站</p><p>内容仅供参考，以官方通知为准</p></div>
-        <a href="#top">回到顶部 ↑</a>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }

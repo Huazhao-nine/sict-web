@@ -6,6 +6,8 @@ import { articleBlocks, experienceArticles, findExperience } from "../../content
 
 type ArticlePageProps = { params: Promise<{ slug: string }> };
 
+export const dynamic = "force-static";
+
 export function generateStaticParams() {
   return experienceArticles.map(({ slug }) => ({ slug }));
 }

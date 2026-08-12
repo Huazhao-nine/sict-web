@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   description: "沈计指南的非官方性质、公益原则、内容边界、外部链接与版权说明。",
 };
 
+export const dynamic = "force-static";
+
 const sections = [
   {
     number: "01",

@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   description: "沈阳计算所 2026 年复试、拟录取、专业分布、分数段和成绩统计。",
 };
 
+export const dynamic = "force-static";
+
 const programs = [
   { name: "计算机系统结构", code: "081201", interviewed: 2, admitted: 1, rejected: 1, rate: "50.00%" },
   { name: "计算机软件与理论", code: "081202", interviewed: 10, admitted: 7, rejected: 3, rate: "70.00%" },

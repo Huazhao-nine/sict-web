@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     "学生公益整理的中国科学院沈阳计算技术研究所报考指南，汇总招生专业、初试科目、复试规则与历年录取数据。",
 };
 
+export const dynamic = "force-static";
+
 const scoreBands = [
   { label: "390+", interviewed: 1, admitted: 1 },
   { label: "380–389", interviewed: 3, admitted: 3 },
@@ -57,7 +59,7 @@ export default function Home() {
               阅读 2026 数据报告
             </a>
             <QQGroupLink className="button button-group">
-              加入 2027 考研群 <span aria-hidden="true">↗</span>
+              加入 2027 交流群 <span aria-hidden="true">↗</span>
             </QQGroupLink>
           </div>
           <p className="source-note">
@@ -304,7 +306,7 @@ export default function Home() {
             <h3>2027 中科院<br />沈计所考研</h3>
             <p>交流信息、反馈勘误，也欢迎上岸同学分享新的经验材料。</p>
             <QQGroupLink className="community-button">
-              一键加入 QQ 群 <strong aria-hidden="true">↗</strong>
+              加入 QQ 群 <strong aria-hidden="true">↗</strong>
             </QQGroupLink>
             <small>点击后将跳转到腾讯 QQ 加群页面</small>
           </aside>

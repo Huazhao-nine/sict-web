@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   description: "沈阳计算所 2006—2026 年初试、复试与备考经验全文网页归档。",
 };
 
+export const dynamic = "force-static";
+
 const years = experienceYears();
 
 export default function Experiences() {

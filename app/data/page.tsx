@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   description: "沈阳计算所 2024—2026 年统考录取记录、初试区间与统计口径对照。",
 };
 
+export const dynamic = "force-static";
+
 const years = [
   {
     year: "2026",

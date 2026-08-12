@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   description: "沈计指南的数据来源层级、更新规则、隐私处理与免责声明。",
 };
 
+export const dynamic = "force-static";
+
 export default function Sources() {
   return (
     <main>

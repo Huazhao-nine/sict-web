@@ -8,14 +8,12 @@ const primaryNav = [
   { label: "历年数据", href: "/data" },
   { label: "经验归档", href: "/experiences" },
   { label: "交流与致谢", href: "/#community" },
+  { label: "免责声明", href: "/disclaimer" },
 ];
 
 export function QQGroupLink({ className, children }: { className: string; children: React.ReactNode }) {
   return (
     <a className={className} href={qqGroupUrl} target="_blank" rel="noopener noreferrer">
-      {/* QQ provides this official group-link badge. */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="https://pub.idqqimg.com/wpa/images/group.png" alt="" width="16" height="16" />
       {children}
     </a>
   );
@@ -37,7 +35,7 @@ export function SiteHeader() {
         ))}
       </nav>
       <QQGroupLink className="header-cta header-group-cta">
-        一键入群 <span aria-hidden="true">↗</span>
+        加入群聊 <span aria-hidden="true">↗</span>
       </QQGroupLink>
       <details className="mobile-menu">
         <summary aria-label="打开导航菜单"><span />菜单</summary>
@@ -45,7 +43,7 @@ export function SiteHeader() {
           {primaryNav.map((item) => (
             <Link href={item.href} key={item.href}>{item.label}<span>↗</span></Link>
           ))}
-          <QQGroupLink className="mobile-group-link">一键加入 2027 交流群<span>↗</span></QQGroupLink>
+          <QQGroupLink className="mobile-group-link">加入 2027 交流群<span>↗</span></QQGroupLink>
         </nav>
       </details>
     </header>

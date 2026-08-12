@@ -57,9 +57,14 @@ test("server-renders the complete 2026 annual report", async () => {
   assert.match(html, /分数段与学习方式/);
   assert.match(html, /成绩统计按学习方式拆分/);
   assert.match(html, /2026 届毕业去向民间汇总/);
-  assert.match(html, /原图合计.*116<small> 人/s);
+  assert.match(html, /分析样本.*87<small> 人/s);
+  assert.match(html, /报告标注.*56<small> 条/s);
+  assert.match(html, /原图合计栏.*116<small> 人/s);
+  assert.match(html, /相差 29 人/);
   assert.match(html, /非官方 · 民间统计/);
-  assert.match(html, /百度在线网络技术（北京）有限公司/);
+  assert.match(html, /百度.*10/s);
+  assert.match(html, /国央企 \/ 事业单位 \/ 公务员/);
+  assert.match(html, /不能评价“就业质量”/);
   assert.match(html, /2025 届毕业去向概览/);
   assert.match(html, /全日制拟录取.*49<small> 人/s);
   assert.match(html, /非全日制拟录取.*0<small> 人/s);

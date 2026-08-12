@@ -63,6 +63,7 @@ export function SiteFooter() {
         <Link href="/data">历年数据</Link>
         <Link href="/experiences">经验归档</Link>
         <Link href="/sources">来源说明</Link>
+        <Link href="/disclaimer">免责声明</Link>
         <a href={qqGroupUrl} target="_blank" rel="noopener noreferrer">2027 交流群</a>
       </nav>
       <div className="footer-meta"><p>公益维护 · 非盈利 · 非官方网站</p><p>内容仅供参考，以官方通知为准</p></div>

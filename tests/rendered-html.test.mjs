@@ -28,7 +28,7 @@ test("server-renders the finished SICT guide", async () => {
   assert.match(html, /一键加入 QQ 群/);
   assert.match(html, /中科院软件所报考指南/);
   assert.match(html, /信工所考研信息站/);
-  assert.match(html, /https:\/\/cas\.cskaoyan\.cn/);
+  assert.match(html, /https:\/\/iscas\.cskaoyan\.cn/);
   assert.match(html, /https:\/\/iie\.cskaoyan\.cn/);
   assert.match(html, /qm\.qq\.com\/cgi-bin\/qm\/qr/);
   assert.match(html, /非官方网站/);
@@ -73,7 +73,7 @@ test("server-renders experience and source archives", async () => {
   assert.match(sourceHtml, /核心整理材料已经转成网页/);
   assert.match(sourceHtml, /也看看兄弟研究所/);
   assert.match(sourceHtml, /iie\.cskaoyan\.cn/);
-  assert.match(sourceHtml, /cas\.cskaoyan\.cn/);
+  assert.match(sourceHtml, /iscas\.cskaoyan\.cn/);
   assert.doesNotMatch(`${experienceHtml}${sourceHtml}`, /\/downloads\//);
 });
 
@@ -86,4 +86,17 @@ test("server-renders a complete experience article", async () => {
   assert.match(html, /阅读边界/);
   assert.match(html, /原始资料/);
   assert.doesNotMatch(html, /href="[^"]*\.(?:pdf|docx?|xlsx?)"/i);
+});
+
+test("server-renders the complete disclaimer", async () => {
+  const response = await render("/disclaimer");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /非官方性质/);
+  assert.match(html, /非盈利声明/);
+  assert.match(html, /内容仅供参考/);
+  assert.match(html, /外部链接与群聊/);
+  assert.match(html, /CC BY-NC-SA 4\.0/);
+  assert.match(html, /更正与反馈/);
+  assert.match(html, /2027 交流群/);
 });

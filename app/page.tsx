@@ -352,6 +352,10 @@ export default function Home() {
             <summary>可以用某一年的最低分预测下一年吗？</summary>
             <p>不建议。分数线会受到试题难度、报考人数、招生名额和复试表现影响，应结合多个年度观察。</p>
           </details>
+          <details>
+            <summary>网站内容可以转载吗？</summary>
+            <p>本站内容按 CC BY-NC-SA 4.0 协议开放，转载需要注明出处、不得商用，并以相同方式共享。完整边界请阅读 <Link className="inline-text-link" href="/disclaimer">免责声明</Link>。</p>
+          </details>
         </div>
       </section>
 
@@ -363,7 +367,7 @@ export default function Home() {
             <p>这个网站不是凭空出现的。数据、经验与页面组织都来自许多公开资料和热心分享，我们在此明确记录参考来源。</p>
           </div>
           <div className="thanks-list">
-            <a href="https://cas.cskaoyan.cn" target="_blank" rel="noopener noreferrer">
+            <a href="https://iscas.cskaoyan.cn/" target="_blank" rel="noopener noreferrer">
               <span>01 / BROTHER SITE</span><div><h3>中科院软件所报考指南</h3><p>参考其一站式报考流程、交流群入口、经验分享和贡献致谢结构。</p></div><strong>访问网站 ↗</strong>
             </a>
             <a href="https://iie.cskaoyan.cn" target="_blank" rel="noopener noreferrer">

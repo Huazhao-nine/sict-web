@@ -297,6 +297,7 @@ button, input, textarea, select { font: inherit; }
 .faq-list summary::after { position: absolute; top: 20px; right: 8px; color: var(--orange); content: "+"; font-family: Georgia, serif; font-size: 18px; font-weight: 400; }
 .faq-list details[open] summary::after { content: "−"; }
 .faq-list details p { max-width: 760px; margin: -4px 0 24px 4px; color: var(--ink-soft); font-size: 10px; line-height: 1.85; }
+.inline-text-link { margin-left: 3px; border-bottom: 1px solid var(--orange); color: var(--orange); }
 
 .thanks-section { padding: 108px 32px; background: var(--white); scroll-margin-top: 54px; }
 .thanks-inner { width: min(1180px, 100%); margin: 0 auto; }
@@ -450,6 +451,27 @@ footer { display: grid; min-height: 190px; padding: 50px max(32px, calc((100vw -
 .disclaimer-block > span { padding-top: 6px; color: var(--navy); font-size: 9px; font-weight: 800; letter-spacing: .16em; }
 .disclaimer-block h2 { margin: 0 0 16px; font-family: var(--font-display); font-size: 32px; }
 .disclaimer-block p { max-width: 820px; margin: 0; color: rgba(255,255,255,.8); font-size: 10px; line-height: 1.9; }
+.disclaimer-more { display: inline-block; margin-top: 22px; padding-bottom: 4px; border-bottom: 1px solid rgba(255,255,255,.6); font-size: 9px; font-weight: 800; }
+
+/* Disclaimer */
+.disclaimer-intro { display: grid; padding-bottom: 55px; grid-template-columns: .78fr 1.22fr; align-items: end; border-bottom: 2px solid var(--ink); gap: 90px; }
+.disclaimer-intro h2 { max-width: 480px; margin: 0; font-family: var(--font-display); font-size: 40px; line-height: 1.3; }
+.disclaimer-intro > p { margin: 0; color: var(--ink-soft); font-size: 11px; line-height: 1.9; }
+.disclaimer-sections { padding-top: 0; }
+.disclaimer-sections article { display: grid; padding: 46px 5px; grid-template-columns: 70px 240px 1fr; border-bottom: 1px solid var(--line); scroll-margin-top: 64px; gap: 30px; }
+.disclaimer-sections article > span { padding-top: 5px; color: var(--orange); font-family: Georgia, serif; font-size: 10px; }
+.disclaimer-sections h2 { margin: 0; font-family: var(--font-display); font-size: 24px; }
+.disclaimer-sections article > div { color: var(--ink-soft); font-size: 11px; line-height: 1.95; }
+.disclaimer-sections p { margin: 0; }
+.disclaimer-sections strong { color: var(--ink); }
+.disclaimer-sections ul { margin: 0; padding: 0; list-style: none; }
+.disclaimer-sections li { position: relative; margin-bottom: 12px; padding-left: 20px; }
+.disclaimer-sections li::before { position: absolute; top: .82em; left: 1px; width: 5px; height: 5px; background: var(--orange); content: ""; }
+.disclaimer-sections article a { border-bottom: 1px solid var(--orange); color: var(--orange); }
+.disclaimer-contact { display: grid; padding: 84px max(32px, calc((100vw - 1180px) / 2)); grid-template-columns: 1fr 320px; align-items: center; background: var(--navy); color: white; gap: 90px; }
+.disclaimer-contact h2 { margin: 0; font-family: var(--font-display); font-size: 38px; }
+.disclaimer-contact > div > p:last-child { margin: 15px 0 0; color: rgba(255,255,255,.48); font-size: 9px; }
+.disclaimer-contact .community-button { margin-top: 0; }
 
 /* Experience article */
 .article-hero { padding: 145px 32px 76px; background: var(--navy); color: white; }
@@ -619,6 +641,8 @@ footer { display: grid; min-height: 190px; padding: 50px max(32px, calc((100vw -
   .year-card-grid { grid-template-columns: repeat(2, 1fr); }
   .data-method-inner, .source-downloads-inner, .privacy-section, .brother-sites-inner { grid-template-columns: 1fr; gap: 48px; }
   .archive-policy { grid-template-columns: 1fr; gap: 24px; }
+  .disclaimer-intro { grid-template-columns: 1fr; gap: 25px; }
+  .disclaimer-contact { grid-template-columns: 1fr 290px; gap: 55px; }
   .source-layer-grid { grid-template-columns: 1fr; }
   .source-layer-grid article { min-height: 0; }
   .source-layer-grid h2 { margin-top: 38px; }
@@ -701,6 +725,10 @@ footer { display: grid; min-height: 190px; padding: 50px max(32px, calc((100vw -
   .archive-item-link { grid-template-columns: 35px 1fr; }
   .archive-item-link > small { display: none; }
   .archive-policy, .disclaimer-block { padding: 70px 18px; grid-template-columns: 1fr; gap: 24px; }
+  .disclaimer-intro { padding-bottom: 42px; }
+  .disclaimer-sections article { padding: 36px 2px; grid-template-columns: 42px 1fr; gap: 12px; }
+  .disclaimer-sections article > div { grid-column: 2; }
+  .disclaimer-contact { padding: 70px 18px; grid-template-columns: 1fr; gap: 34px; }
   .source-downloads { padding: 76px 18px; }
   .source-document-list a { grid-template-columns: 48px 1fr; }
   .source-document-list a > b { display: none; }

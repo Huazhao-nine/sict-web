@@ -21,24 +21,30 @@ const outcomeYears = [
   {
     year: "2026",
     sample: 87,
-    categories: [
-      { label: "大厂 / 科技企业", value: "50", unit: "人", detail: "占样本 57.5%", compact: false },
-      { label: "国央企 / 事业单位 / 公务员", value: "20", unit: "人", detail: "占样本 23.0%", compact: false },
-      { label: "读博 / 深造", value: "8", unit: "人", detail: "占样本 9.2%", compact: false },
+    employment: 79,
+    employmentRate: "90.8%",
+    furtherStudy: 8,
+    furtherStudyRate: "9.2%",
+    paths: [
+      { label: "大厂", value: "50 人", detail: "百度、京东、华为等" },
+      { label: "公务员与体制内", value: "20 人", detail: "含国央企、事业单位" },
+      { label: "读博深造", value: "8 人", detail: "升学及读博" },
     ],
-    highlights: ["百度 10", "京东 9", "华为 7", "美团 5", "快手 5"],
-    note: "三类合计 78 人。页面只展示方向概览和人数较多的去向，其余类别不展开。",
+    note: "分类仅作方向概览，其余去向不展开。",
   },
   {
     year: "2025",
     sample: 114,
-    categories: [
-      { label: "大厂 / 科技企业", value: "多家", unit: "", detail: "现有汇总未统计类别合计", compact: true },
-      { label: "国央企 / 事业单位 / 公务员", value: "未单列", unit: "", detail: "不根据单位名称自行归类", compact: true },
-      { label: "读博 / 深造", value: "22", unit: "人", detail: "占样本 19.3%", compact: false },
+    employment: 92,
+    employmentRate: "80.7%",
+    furtherStudy: 22,
+    furtherStudyRate: "19.3%",
+    paths: [
+      { label: "大厂", value: "代表去向", detail: "百度、美团、京东、小米等" },
+      { label: "公务员与体制内", value: "未单列", detail: "不补算分类人数" },
+      { label: "读博深造", value: "22 人", detail: "其中国科大读博 9 人" },
     ],
-    highlights: ["国科大读博 9", "百度 6", "美团 5", "京东 5", "小米 4"],
-    note: "2025 届包含非全日制样本。大厂和体制内没有分类合计，因此只列已知主要去向，不补算人数。",
+    note: "包含非全日制样本；未提供的分类合计不作推算。",
   },
 ];
 
@@ -108,7 +114,7 @@ export default function Report2026() {
 
       <section className="report-outcomes" id="outcomes">
         <div className="report-outcomes-inner">
-          <div className="report-title-row inverse"><div><p className="section-kicker">05 · OUTCOMES</p><h2>毕业去向概览</h2></div><p>重点呈现<strong>大厂与科技企业、国央企及公务员、读博深造</strong>三类方向。2025、2026 使用相同版式，缺失数据不作推算。</p></div>
+          <div className="report-title-row inverse"><div><p className="section-kicker">05 · OUTCOMES</p><h2>毕业去向概览</h2></div><p>先看年度样本、就业与深造概况，再简略了解<strong>大厂、公务员及体制内、读博深造</strong>三类方向。</p></div>
           <div className="outcome-disclaimer compact-outcome-disclaimer">
             <span>非官方 · 民间整理</span>
             <p>数据仅供了解大致去向，可能存在遗漏、归类误差或后续变化，<strong>不代表官方就业率、薪资水平或就业承诺。</strong></p>
@@ -117,22 +123,22 @@ export default function Report2026() {
           <div className="outcome-year-grid">
             {outcomeYears.map((item) => (
               <article className="outcome-year-card" key={item.year}>
-                <header><div><span>GRADUATE OUTCOMES</span><h3>{item.year} 届</h3></div><b>{item.sample} 人样本</b></header>
+                <header><div><span>GRADUATE OUTCOMES</span><h3>{item.year} 届</h3></div><b>学生整理</b></header>
                 <div className="outcome-year-kpis">
-                  {item.categories.map((category) => (
-                    <div key={category.label}>
-                      <span>{category.label}</span>
-                      <strong className={category.compact ? "compact-value" : undefined}>{category.value}{category.unit && <small> {category.unit}</small>}</strong>
-                      <p>{category.detail}</p>
-                    </div>
+                  <div><span>统计样本</span><strong>{item.sample}<small> 人</small></strong></div>
+                  <div><span>就业</span><strong>{item.employment}<small> 人</small></strong><p>{item.employmentRate}</p></div>
+                  <div><span>读博 / 深造</span><strong>{item.furtherStudy}<small> 人</small></strong><p>{item.furtherStudyRate}</p></div>
+                </div>
+                <div className="outcome-year-paths">
+                  {item.paths.map((path) => (
+                    <div key={path.label}><span>{path.label}</span><strong>{path.value}</strong><small>{path.detail}</small></div>
                   ))}
                 </div>
-                <div className="outcome-year-highlights"><span>代表性去向</span><ul>{item.highlights.map((entry) => <li key={entry}>{entry}</li>)}</ul></div>
                 <p className="outcome-year-note">{item.note}</p>
               </article>
             ))}
           </div>
-          <p className="outcome-note"><strong>阅读提示：</strong>两年的样本范围和分类粒度不同，2025 的“大厂”和“体制内”没有类别总数，只适合了解大致方向，不宜直接横向比较。</p>
+          <p className="outcome-note"><strong>阅读提示：</strong>两年的样本范围和分类粒度不同，分类数据只用于了解大致方向，不宜直接横向比较就业质量。</p>
         </div>
       </section>
 

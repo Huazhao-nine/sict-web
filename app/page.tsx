@@ -83,11 +83,6 @@ export default function Home() {
             <div><span>总体录取率</span><strong>48.04</strong><small>%</small></div>
             <div><span>复录比</span><strong>2.08</strong><small>: 1</small></div>
           </div>
-          <div className="snapshot-benefits" aria-label="培养信息">
-            <article><span>学科实力</span><strong>A+</strong><small>国科大计算机 · 第四轮学科评估</small></article>
-            <article><span>研一补助</span><strong>3.3万+</strong><small>元/年 · 北京 · 含学费返还</small></article>
-            <article><span>学费</span><div className="tuition-value"><del>8000</del><strong>免学费</strong></div><small>具体以入学当年通知为准</small></article>
-          </div>
           <div className="snapshot-foot">
             <span>口径</span>
             <p>复试名单与拟录取名单；包含 1 名退役大学生士兵计划考生。</p>
@@ -101,6 +96,12 @@ export default function Home() {
         <p><strong>阅读说明</strong> 本站由学生维护，不代表沈阳计算技术研究所官方立场。</p>
         <a href="#methodology">查看数据口径 →</a>
       </div>
+
+      <section className="value-strip" aria-label="培养优势概览">
+        <article><strong>A+</strong><span>国科大计算机学科评估</span><small>全国第四轮学科评估</small></article>
+        <article><strong>3.3万+</strong><span>研一补助/年 · 北京</span><small>学生整理口径，含学费返还</small></article>
+        <article><strong>免学费</strong><span>补助已含学费返还</span><small>具体发放以入学当年通知为准</small></article>
+      </section>
 
       <section className="section" id="overview">
         <div className="section-heading">

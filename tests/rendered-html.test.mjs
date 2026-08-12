@@ -25,11 +25,10 @@ test("server-renders the finished SICT guide", async () => {
   assert.match(html, /复试怎么考/);
   assert.match(html, /培养地点、住宿与补助/);
   assert.match(html, /A\+/);
-  assert.match(html, /国科大计算机 · 第四轮学科评估/);
+  assert.match(html, /国科大计算机学科评估/);
   assert.match(html, /3\.3万\+/);
-  assert.match(html, /元\/年 · 北京 · 含学费返还/);
-  assert.match(html, /<del>8000<\/del>/);
-  assert.match(html, /免学费/);
+  assert.match(html, /研一补助\/年 · 北京/);
+  assert.match(html, /补助已含学费返还/);
   assert.match(html, /阅读说明/);
   assert.match(html, /本站由学生维护，不代表沈阳计算技术研究所官方立场/);
   assert.match(html, /查看数据口径/);

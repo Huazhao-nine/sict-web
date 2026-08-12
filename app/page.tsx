@@ -103,34 +103,6 @@ export default function Home() {
         <article><strong>免学费</strong><span>补助已含学费返还</span><small>具体发放以入学当年通知为准</small></article>
       </section>
 
-      <section className="section institute-section" id="institute">
-        <div className="institute-intro">
-          <div>
-            <p className="section-kicker">ABOUT · SICT</p>
-            <h2>认识沈计所</h2>
-          </div>
-          <div className="institute-intro-copy">
-            <p><strong>沈阳计算始建于 1958 年，</strong>以数字化、信息化和智能化技术为主要方向，面向能源、智能制造等领域开展科研与产业化工作，同时承担国科大研究生培养任务。</p>
-            <a href="https://www.sict.ac.cn/show-26-1-1.html" target="_blank" rel="noopener noreferrer">查看研究所官方介绍 ↗</a>
-          </div>
-        </div>
-
-        <div className="why-sict-section">
-          <div className="why-sict-title"><p className="section-kicker">WHY SICT</p><h2>为什么选择沈计所</h2></div>
-          <div className="why-sict-grid">
-            <article><span aria-hidden="true">🎓</span><div><h3>方向完整</h3><p>设有计算机科学与技术、软件工程硕士点，以及计算机应用技术博士点。</p></div></article>
-            <article><span aria-hidden="true">📉</span><div><h3>分数线相对友好</h3><p>2026 年学硕复试线 265、专硕复试线 273，最终仍按初复试综合成绩排序。</p></div></article>
-            <article><span aria-hidden="true">🏛️</span><div><h3>平台与项目</h3><p>拥有三个国家级平台，长期承担国家重大专项和重点研发任务。</p></div></article>
-            <article><span aria-hidden="true">💰</span><div><h3>免学费 + 高补助</h3><p>学生整理口径：研一补助 3.3 万+/年，已含学费返还；实际以当年通知为准。</p></div></article>
-            <article><span aria-hidden="true">❤️</span><div><h3>上岸背景多样</h3><p>经验归档中可见跨考、二战和不同本科背景案例，成绩与复试表现更重要。</p></div></article>
-            <article><span aria-hidden="true">🚀</span><div><h3>去向选择多元</h3><p>毕业去向覆盖科技企业、党政机关与继续深造，年度报告提供民间统计参考。</p></div></article>
-          </div>
-          <p className="why-sict-tip"><strong>⚠️ 理性看待：</strong>复试线相对友好不等于稳录取。2026 年学硕 30 人进入复试、拟录取 16 人；专硕 72 人进入复试、拟录取 33 人，复试准备同样重要。</p>
-        </div>
-
-        <p className="institute-note"><strong>口径说明：</strong>机构数据据官方简介整理；补助与学费来自学生材料，实际政策以入学当年通知为准。</p>
-      </section>
-
       <section className="section" id="overview">
         <div className="section-heading">
           <div>

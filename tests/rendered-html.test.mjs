@@ -45,7 +45,7 @@ test("server-renders the data archive", async () => {
   const html = await response.text();
   assert.match(html, /历年录取/);
   assert.match(html, /2024—2026/);
-  assert.match(html, /48 条常规录取记录/);
+  assert.match(html, /48 条常规成绩记录/);
 });
 
 test("server-renders the complete 2026 annual report", async () => {
@@ -54,10 +54,35 @@ test("server-renders the complete 2026 annual report", async () => {
   const html = await response.text();
   assert.match(html, /2026 年.*考研数据报告/s);
   assert.match(html, /四个报考专业/);
-  assert.match(html, /分数段复试与录取/);
-  assert.match(html, /单科、初试、复试与总成绩/);
+  assert.match(html, /分数段与学习方式/);
+  assert.match(html, /成绩统计按学习方式拆分/);
   assert.match(html, /2025 届毕业去向概览/);
+  assert.match(html, /全日制拟录取.*49<small> 人/s);
+  assert.match(html, /非全日制拟录取.*0<small> 人/s);
   assert.doesNotMatch(html, /\/downloads\//);
+});
+
+test("server-renders the complete 2024 and 2025 table reports", async () => {
+  const [report2024, report2025] = await Promise.all([
+    render("/data/2024"),
+    render("/data/2025"),
+  ]);
+  assert.equal(report2024.status, 200);
+  assert.equal(report2025.status, 200);
+  const html2024 = await report2024.text();
+  const html2025 = await report2025.text();
+  assert.match(html2024, /2024 年.*考研数据报告/s);
+  assert.match(html2024, /123<small> 人/);
+  assert.match(html2024, /78<small> 人/);
+  assert.match(html2024, /全日制拟录取.*54<small> 人/s);
+  assert.match(html2024, /非全日制拟录取.*24<small> 人/s);
+  assert.match(html2025, /2025 年.*考研数据报告/s);
+  assert.match(html2025, /135<small> 人/);
+  assert.match(html2025, /79<small> 人/);
+  assert.match(html2025, /全日制拟录取.*51<small> 人/s);
+  assert.match(html2025, /非全日制拟录取.*28<small> 人/s);
+  assert.match(`${html2024}${html2025}`, /分数段按学习方式拆分/);
+  assert.match(`${html2024}${html2025}`, /不公开姓名/);
 });
 
 test("server-renders experience and source archives", async () => {

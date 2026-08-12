@@ -3,11 +3,18 @@
 import { useState } from "react";
 
 type Program = "combined" | "academic" | "professional";
+type StudyMode = "all" | "fullTime" | "partTime";
 
 const labels: Record<Program, string> = {
   combined: "总体",
   academic: "学硕",
   professional: "专硕",
+};
+
+const studyModeLabels: Record<StudyMode, string> = {
+  all: "全部",
+  fullTime: "全日制",
+  partTime: "非全日制",
 };
 
 const scoreBands: Record<Program, Array<{ band: string; interviewed: number; admitted: number; cumulativeRate: string }>> = {
@@ -94,16 +101,31 @@ function ProgramTabs({ value, onChange, includeCombined = true }: { value: Progr
   );
 }
 
+function StudyModeTabs({ value, onChange }: { value: StudyMode; onChange: (value: StudyMode) => void }) {
+  const options: StudyMode[] = ["all", "fullTime", "partTime"];
+  return (
+    <div className="report-tabs study-mode-tabs" aria-label="学习方式切换">
+      {options.map((option) => (
+        <button type="button" aria-pressed={value === option} className={value === option ? "active" : ""} onClick={() => onChange(option)} key={option}>{studyModeLabels[option]}</button>
+      ))}
+    </div>
+  );
+}
+
 export function ScoreBandReport() {
   const [program, setProgram] = useState<Program>("combined");
+  const [studyMode, setStudyMode] = useState<StudyMode>("all");
   const data = scoreBands[program];
   const max = Math.max(...data.map((item) => item.interviewed));
   return (
     <>
       <div className="report-section-toolbar">
-        <p>{labels[program]}分数段 · 不含士兵计划</p>
-        <ProgramTabs value={program} onChange={setProgram} />
+        <p>{labels[program]} · {studyModeLabels[studyMode]} · 不含士兵计划</p>
+        <div className="report-filter-groups"><ProgramTabs value={program} onChange={setProgram} /><StudyModeTabs value={studyMode} onChange={setStudyMode} /></div>
       </div>
+      {studyMode === "partTime" ? (
+        <div className="report-empty-state"><strong>0 条非全日制拟录取记录</strong><p>2026 年现有复试、拟录取表和年度报告均未标注非全日制录取，因此没有可计算的分数段。</p></div>
+      ) : <>
       <article className="report-chart-card">
         <div className="report-chart-legend"><span><i className="interviewed" />进入复试</span><span><i className="admitted" />拟录取</span></div>
         <div className="report-bar-chart" aria-label={`${labels[program]}各分数段复试和录取人数`}>
@@ -125,19 +147,25 @@ export function ScoreBandReport() {
           <tbody>{data.map((item) => <tr key={item.band}><td><strong>{item.band}</strong></td><td>{item.interviewed}</td><td>{item.admitted}</td><td>{(item.admitted / item.interviewed * 100).toFixed(2)}%</td><td>{item.cumulativeRate}</td></tr>)}</tbody>
         </table>
       </div>
+      {studyMode === "fullTime" && <p className="report-mode-note">本年度材料未见非全日制标注，因此全日制详细分数段与全部相同；本表仍按原报告排除 1 名士兵计划考生。</p>}
+      </>}
     </>
   );
 }
 
 export function ScoreStatistics() {
   const [program, setProgram] = useState<Program>("academic");
+  const [studyMode, setStudyMode] = useState<StudyMode>("all");
   const typedProgram = program === "professional" ? "professional" : "academic";
   return (
     <>
       <div className="report-section-toolbar">
-        <p>最高、最低、平均和中位数同时展示</p>
-        <ProgramTabs value={program} onChange={setProgram} includeCombined={false} />
+        <p>{studyModeLabels[studyMode]} · 最高、最低、平均和中位数</p>
+        <div className="report-filter-groups"><ProgramTabs value={program} onChange={setProgram} includeCombined={false} /><StudyModeTabs value={studyMode} onChange={setStudyMode} /></div>
       </div>
+      {studyMode === "partTime" ? (
+        <div className="report-empty-state"><strong>0 条非全日制成绩记录</strong><p>原始材料没有非全日制拟录取样本，因此不显示空统计表。</p></div>
+      ) : (
       <div className="statistics-grid">
         <article className="stat-table-card">
           <div><span>复试名单样本</span><h3>初试单科成绩</h3></div>
@@ -148,7 +176,8 @@ export function ScoreStatistics() {
           <div className="report-table-wrap"><table className="report-table compact-table"><thead><tr><th>项目</th><th>最高</th><th>最低</th><th>平均</th><th>中位</th></tr></thead><tbody>{admittedStats[typedProgram].map((row) => <tr key={row[0]}>{row.map((cell, index) => index === 0 ? <td key={String(cell)}><strong>{cell}</strong></td> : <td key={`${row[0]}-${index}`}>{cell}</td>)}</tr>)}</tbody></table></div>
         </article>
       </div>
+      )}
+      {studyMode !== "partTime" && <p className="report-mode-note">拟录取成绩统计覆盖 48 条常规记录；另 1 名士兵专项计划考生未进入这组详细统计。现有材料无非全日制，因此全部与全日制结果相同。</p>}
     </>
   );
 }
-

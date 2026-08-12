@@ -27,7 +27,7 @@ export default function Report2026() {
           <a href="/data">← 返回历年档案</a>
           <p className="eyebrow"><span>2026</span> ANNUAL DATA REPORT</p>
           <h1>2026 年<br />考研数据报告</h1>
-          <p>基于一志愿复试名单与拟录取名单整理。先看总体竞争，再拆到专业、分数段和成绩统计。</p>
+          <p>基于一志愿复试名单与拟录取名单整理。<strong>先看总体竞争，再拆到学习方式、专业、分数段和成绩统计。</strong></p>
         </div>
         <div className="report-hero-ledger">
           <div><span>报告状态</span><strong>完整年度</strong></div>
@@ -41,12 +41,12 @@ export default function Report2026() {
       </nav>
 
       <section className="section report-overview" id="overview">
-        <div className="report-title-row"><div><p className="section-kicker">01 · OVERVIEW</p><h2>招生规模与复试门槛</h2></div><p>总人数包含 1 名退役大学生士兵专项计划考生；后续单科、分数段统计均不含该专项计划。</p></div>
+        <div className="report-title-row"><div><p className="section-kicker">01 · OVERVIEW</p><h2>招生规模与学习方式</h2></div><p><strong>总体录取率 48.04%，复录比约 2.08 : 1。</strong>材料中没有非全日制标注；总人数包含 1 名退役大学生士兵专项计划考生。</p></div>
         <div className="report-kpis">
           <article className="primary-kpi"><span>一志愿复试</span><strong>102<small> 人</small></strong><p>学硕 30 · 专硕 72</p></article>
-          <article><span>拟录取</span><strong>49<small> 人</small></strong><p>学硕 16 · 专硕 33</p></article>
-          <article><span>整体录取率</span><strong>48.04<small>%</small></strong><p>报告统计口径</p></article>
-          <article><span>复录比</span><strong>2.08<small> : 1</small></strong><p>约每 2.08 名复试考生录取 1 名</p></article>
+          <article><span>全部拟录取</span><strong>49<small> 人</small></strong><p>学硕 16 · 专硕 33</p></article>
+          <article><span>全日制拟录取</span><strong>49<small> 人</small></strong><p>含 1 名士兵专项计划</p></article>
+          <article><span>非全日制拟录取</span><strong>0<small> 人</small></strong><p>现有材料未见非全标注</p></article>
         </div>
         <div className="cutoff-ledger">
           <div><span>学硕复试线</span><strong>265</strong><small>单科 35 / 53</small></div>
@@ -72,12 +72,12 @@ export default function Report2026() {
       </section>
 
       <section className="section report-detail-section" id="scores">
-        <div className="report-title-row"><div><p className="section-kicker">03 · SCORE BANDS</p><h2>分数段复试与录取</h2></div><p>切换总体、学硕和专硕，查看每个初试分数段的复试人数、录取人数与累计录取率。</p></div>
+        <div className="report-title-row"><div><p className="section-kicker">03 · SCORE BANDS</p><h2>分数段与学习方式</h2></div><p>切换总体、学硕和专硕，并按全部、全日制、非全日制查看；<strong>详细分数统计按原报告排除士兵计划。</strong></p></div>
         <ScoreBandReport />
       </section>
 
       <section className="section report-detail-section" id="statistics">
-        <div className="report-title-row"><div><p className="section-kicker">04 · STATISTICS</p><h2>单科、初试、复试与总成绩</h2></div><p>不只看最低分，同时保留最高、平均和中位数，避免单个极端值替代整体判断。</p></div>
+        <div className="report-title-row"><div><p className="section-kicker">04 · STATISTICS</p><h2>成绩统计按学习方式拆分</h2></div><p><strong>本年度没有非全日制样本。</strong>因此全部与全日制详细统计相同；非全日制切换页明确显示 0 条记录。</p></div>
         <ScoreStatistics />
       </section>
 

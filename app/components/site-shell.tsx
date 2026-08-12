@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 export const qqGroupUrl = "https://qm.qq.com/cgi-bin/qm/qr?k=r9u8RmL8tXw4jCF32Pz1tOd83sFteVW1&jump_from=webapi&authKey=Itu6in4pdGnalupvoOhfjHS5fzZsjCw0hgTiBdJh8oSiq1vSH3eiDwAenGR0UsCl";
+export const githubRepoUrl = "https://github.com/Huazhao-nine/sict-web";
 
 const primaryNav = [
   { label: "首页", href: "/" },
@@ -34,6 +35,9 @@ export function SiteHeader() {
           <Link href={item.href} key={item.href}>{item.label}</Link>
         ))}
       </nav>
+      <a className="header-source" href={githubRepoUrl} target="_blank" rel="noopener noreferrer">
+        GitHub 项目 <span aria-hidden="true">↗</span>
+      </a>
       <QQGroupLink className="header-cta header-group-cta">
         加入群聊 <span aria-hidden="true">↗</span>
       </QQGroupLink>
@@ -43,6 +47,7 @@ export function SiteHeader() {
           {primaryNav.map((item) => (
             <Link href={item.href} key={item.href}>{item.label}<span>↗</span></Link>
           ))}
+          <a href={githubRepoUrl} target="_blank" rel="noopener noreferrer">GitHub 项目<span>↗</span></a>
           <QQGroupLink className="mobile-group-link">加入 2027 交流群<span>↗</span></QQGroupLink>
         </nav>
       </details>
@@ -62,6 +67,7 @@ export function SiteFooter() {
         <Link href="/experiences">经验归档</Link>
         <Link href="/sources">来源说明</Link>
         <Link href="/disclaimer">免责声明</Link>
+        <a href={githubRepoUrl} target="_blank" rel="noopener noreferrer">GitHub 项目</a>
         <a href={qqGroupUrl} target="_blank" rel="noopener noreferrer">2027 交流群</a>
       </nav>
       <div className="footer-meta"><p>公益维护 · 非盈利 · 非官方网站</p><p>内容仅供参考，以官方通知为准</p></div>

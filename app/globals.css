@@ -65,6 +65,9 @@ button, input, textarea, select { font: inherit; }
 .desktop-nav a::after { position: absolute; right: 0; bottom: -8px; left: 0; height: 1px; background: var(--orange); content: ""; transform: scaleX(0); transition: transform .2s ease; }
 .desktop-nav a:hover { color: white; }
 .desktop-nav a:hover::after { transform: scaleX(1); }
+.header-source { flex: none; padding-bottom: 3px; border-bottom: 1px solid rgba(255,255,255,.38); color: rgba(255,255,255,.78); font-size: 12px; font-weight: 750; }
+.header-source span { color: var(--orange); }
+.header-source:hover { border-color: var(--orange); color: white; }
 .header-cta { display: inline-flex; padding: 10px 15px; align-items: center; border: 1px solid rgba(255,255,255,.4); font-size: 13px; font-weight: 800; gap: 7px; }
 .header-cta span { margin-left: 7px; color: var(--orange); }
 .header-group-cta { border-color: rgba(213,189,145,.55); background: rgba(213,189,145,.1); }
@@ -625,6 +628,7 @@ footer { display: grid; min-height: 190px; padding: 50px max(32px, calc((100vw -
 
 @media (max-width: 960px) {
   .desktop-nav { display: none; }
+  .header-source { display: none; }
   .header-cta { display: none; }
   .mobile-menu { display: block; }
   .hero { min-height: auto; padding-top: 145px; grid-template-columns: 1fr; gap: 60px; }

@@ -32,6 +32,7 @@ test("server-renders the finished SICT guide", async () => {
   assert.match(html, /https:\/\/iscas\.cskaoyan\.cn/);
   assert.match(html, /https:\/\/iie\.cskaoyan\.cn/);
   assert.match(html, /qm\.qq\.com\/cgi-bin\/qm\/qr/);
+  assert.match(html, /github\.com\/Huazhao-nine\/sict-web/);
   assert.doesNotMatch(html, /pub\.idqqimg\.com/);
   assert.match(html, /非官方网站/);
   assert.doesNotMatch(html, /\/downloads\//);

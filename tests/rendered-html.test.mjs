@@ -23,7 +23,9 @@ test("server-renders the finished SICT guide", async () => {
   assert.match(html, /2026 数据快照/);
   assert.match(html, /初试科目/);
   assert.match(html, /复试怎么考/);
+  assert.match(html, /培养地点、住宿与补助/);
   assert.match(html, /非官方网站/);
+  assert.doesNotMatch(html, /\/downloads\//);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/i);
 });
 
@@ -44,6 +46,8 @@ test("server-renders the complete 2026 annual report", async () => {
   assert.match(html, /四个报考专业/);
   assert.match(html, /分数段复试与录取/);
   assert.match(html, /单科、初试、复试与总成绩/);
+  assert.match(html, /2025 届毕业去向概览/);
+  assert.doesNotMatch(html, /\/downloads\//);
 });
 
 test("server-renders experience and source archives", async () => {
@@ -53,6 +57,23 @@ test("server-renders experience and source archives", async () => {
   ]);
   assert.equal(experienceResponse.status, 200);
   assert.equal(sourceResponse.status, 200);
-  assert.match(await experienceResponse.text(), /经验资料/);
-  assert.match(await sourceResponse.text(), /三层来源/);
+  const experienceHtml = await experienceResponse.text();
+  const sourceHtml = await sourceResponse.text();
+  assert.match(experienceHtml, /经验文章库/);
+  assert.match(experienceHtml, /24.*篇/s);
+  assert.match(experienceHtml, /阅读全文/);
+  assert.match(sourceHtml, /三层来源/);
+  assert.match(sourceHtml, /核心整理材料已经转成网页/);
+  assert.doesNotMatch(`${experienceHtml}${sourceHtml}`, /\/downloads\//);
+});
+
+test("server-renders a complete experience article", async () => {
+  const response = await render("/experiences/2026-retest-paper");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /2026 复试试题整理/);
+  assert.match(html, /本文目录/);
+  assert.match(html, /阅读边界/);
+  assert.match(html, /原始资料/);
+  assert.doesNotMatch(html, /href="[^"]*\.(?:pdf|docx?|xlsx?)"/i);
 });

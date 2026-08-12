@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SiteFooter, SiteHeader } from "../components/site-shell";
 
 export const metadata: Metadata = {
@@ -36,10 +37,11 @@ export default function Sources() {
 
       <section className="source-downloads">
         <div className="source-downloads-inner">
-          <div><p className="section-kicker">LOCAL SOURCES</p><h2>本站当前使用的两份核心整理材料</h2></div>
+          <div><p className="section-kicker">WEB EDITIONS</p><h2>核心整理材料已经转成网页</h2></div>
           <div className="source-document-list">
-            <a href="/downloads/sict-2026-guide.pdf"><span>01 / PDF</span><div><strong>沈阳计算技术研究所报考指南 1.0</strong><small>整理日期：2026 年 6 月 23 日</small></div><b>下载 ↗</b></a>
-            <a href="/downloads/sict-2026-data-report.pdf"><span>02 / PDF</span><div><strong>2026 考研数据报告 2.0</strong><small>报告日期：2026 年 4 月 27 日</small></div><b>下载 ↗</b></a>
+            <Link href="/"><span>01 / WEB</span><div><strong>沈阳计算技术研究所报考指南</strong><small>招生、初试、复试与培养信息</small></div><b>阅读 ↗</b></Link>
+            <a href="/data/2026"><span>02 / WEB</span><div><strong>2026 考研数据报告</strong><small>复试、录取、分数段与毕业去向</small></div><b>阅读 ↗</b></a>
+            <Link href="/experiences"><span>03 / WEB</span><div><strong>经验文章库</strong><small>24 篇唯一资料全文网页化</small></div><b>阅读 ↗</b></Link>
           </div>
         </div>
       </section>

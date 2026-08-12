@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SiteFooter, SiteHeader } from "../components/site-shell";
 
 export const metadata: Metadata = {
@@ -64,7 +65,7 @@ export default function DataArchive() {
       </section>
 
       <nav className="subnav" aria-label="数据页导航">
-        <a href="#overview">年度概览</a><a href="#comparison">三年对照</a><a href="#method">统计口径</a><a href="/">返回报考指南</a>
+        <a href="#overview">年度概览</a><a href="#comparison">三年对照</a><a href="#method">统计口径</a><Link href="/">返回报考指南</Link>
       </nav>
 
       <section className="section archive-overview" id="overview">
@@ -118,8 +119,8 @@ export default function DataArchive() {
       </section>
 
       <section className="section archive-download">
-        <div><p className="section-kicker">FULL REPORT</p><h2>需要更细的数据？</h2><p>2026 完整报告还包含单科统计、总成绩分布、分数段录取率和毕业去向。</p></div>
-        <a className="button button-dark" href="/downloads/sict-2026-data-report.pdf">下载 2026 数据报告 <span>↗</span></a>
+        <div><p className="section-kicker">FULL REPORT</p><h2>需要更细的数据？</h2><p>2026 网页报告包含单科统计、总成绩分布、分数段录取率和毕业去向，无需下载文件。</p></div>
+        <a className="button button-dark" href="/data/2026">打开 2026 网页报告 <span>↗</span></a>
       </section>
       <SiteFooter />
     </main>

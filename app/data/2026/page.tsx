@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SiteFooter, SiteHeader } from "../../components/site-shell";
 import { ScoreBandReport, ScoreStatistics } from "./report-view";
 
@@ -34,7 +35,7 @@ export default function Report2026() {
       </section>
 
       <nav className="subnav report-subnav" aria-label="2026 报告章节导航">
-        <a href="#overview">总览</a><a href="#programs">专业</a><a href="#scores">分数段</a><a href="#statistics">成绩统计</a><a href="#interpretation">如何解读</a><a href="/downloads/sict-2026-data-report.pdf">原报告 ↗</a>
+        <a href="#overview">总览</a><a href="#programs">专业</a><a href="#scores">分数段</a><a href="#statistics">成绩统计</a><a href="#outcomes">毕业去向</a><a href="#interpretation">如何解读</a><a href="/sources">来源说明 ↗</a>
       </nav>
 
       <section className="section report-overview" id="overview">
@@ -78,9 +79,25 @@ export default function Report2026() {
         <ScoreStatistics />
       </section>
 
+      <section className="report-outcomes" id="outcomes">
+        <div className="report-outcomes-inner">
+          <div className="report-title-row inverse"><div><p className="section-kicker">05 · OUTCOMES</p><h2>2025 届毕业去向概览</h2></div><p>共整理 114 条去向记录，包含非全日制。页面仅展示汇总结果，不公开个人记录。</p></div>
+          <div className="outcome-kpis">
+            <article><span>去向记录</span><strong>114<small> 条</small></strong><p>报告统计样本</p></article>
+            <article><span>就业</span><strong>92<small> 人</small></strong><p>约占 80.7%</p></article>
+            <article><span>继续读博</span><strong>22<small> 人</small></strong><p>约占 19.3%</p></article>
+          </div>
+          <div className="outcome-columns">
+            <article><span>主要城市</span><ol><li><b>北京</b><strong>46</strong></li><li><b>上海</b><strong>13</strong></li><li><b>沈阳</b><strong>11</strong></li><li><b>深圳</b><strong>5</strong></li><li><b>重庆</b><strong>3</strong></li></ol></article>
+            <article><span>人数较多的去向</span><ol><li><b>中国科学院大学（读博）</b><strong>9</strong></li><li><b>百度</b><strong>6</strong></li><li><b>美团</b><strong>5</strong></li><li><b>京东</b><strong>5</strong></li><li><b>北京小米</b><strong>4</strong></li></ol></article>
+          </div>
+          <p className="outcome-note">这组数据描述 2025 届已整理样本，不代表就业承诺，也不用于评价某一培养方向。单位名称按报告汇总口径简写。</p>
+        </div>
+      </section>
+
       <section className="interpretation-section" id="interpretation">
         <div className="interpretation-inner">
-          <div><p className="section-kicker">05 · INTERPRETATION</p><h2>读完数据，应该带走什么</h2></div>
+          <div><p className="section-kicker">06 · INTERPRETATION</p><h2>读完数据，应该带走什么</h2></div>
           <div className="interpretation-list">
             <article><span>01</span><div><h3>学硕方向不是三个封闭赛道</h3><p>系统结构、软件与理论、应用技术最终统一排序，单方向录取率只能描述当年分布。</p></div></article>
             <article><span>02</span><div><h3>专硕高分更稳，但不存在保证线</h3><p>本年度样本中 340 分以上表现相对稳定；这不是下一年度的录取承诺。</p></div></article>
@@ -90,8 +107,8 @@ export default function Report2026() {
       </section>
 
       <section className="section report-source-card">
-        <div><span>来源</span><h2>2026 年沈阳计算技术研究所考研数据报告 2.0</h2><p>学生基于公开名单整理，非官方材料。数据与分析可能存在样本偏差或统计误差。</p></div>
-        <div className="report-source-actions"><a href="/downloads/sict-2026-data-report.pdf">下载原报告 ↗</a><a href="/sources">查看来源规则 →</a></div>
+        <div><span>来源</span><h2>2026 年沈阳计算技术研究所考研数据报告 2.0</h2><p>原始整理材料已转写为本网页。学生基于公开名单整理，非官方材料，数据与分析可能存在样本偏差或统计误差。</p></div>
+        <div className="report-source-actions"><Link href="/sources">查看来源规则 →</Link><Link href="/experiences">阅读经验文章 →</Link></div>
       </section>
       <SiteFooter />
     </main>

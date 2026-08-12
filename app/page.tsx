@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SiteFooter, SiteHeader } from "./components/site-shell";
 
 export const metadata: Metadata = {
@@ -25,10 +26,10 @@ const scoreBands = [
 ];
 
 const experienceItems = [
-  { year: "2026", title: "复试笔试与专业面试回忆", tag: "复试" },
-  { year: "2025", title: "学硕 359 分复试经验", tag: "复试" },
-  { year: "2024", title: "沈计所复试流程回忆", tag: "复试" },
-  { year: "2023", title: "初试 401 分备考经验", tag: "初试" },
+  { year: "2026", title: "专硕复试全流程回忆", tag: "复试", slug: "2026-retest-recollection" },
+  { year: "2025", title: "学硕 359 分复试经验", tag: "复试", slug: "2025-academic-retest-359" },
+  { year: "2024", title: "沈计所复试流程回忆", tag: "复试", slug: "2024-retest-recollection" },
+  { year: "2023", title: "初试 401 分备考经验", tag: "初试", slug: "2023-score-401" },
 ];
 
 export default function Home() {
@@ -52,8 +53,8 @@ export default function Home() {
             <a className="button button-primary" href="#overview">
               开始了解 <span aria-hidden="true">↓</span>
             </a>
-            <a className="button button-ghost" href="/downloads/sict-2026-data-report.pdf">
-              下载 2026 数据报告
+            <a className="button button-ghost" href="/data/2026">
+              阅读 2026 数据报告
             </a>
           </div>
           <p className="source-note">
@@ -249,43 +250,61 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="life-section" id="life">
+        <div className="life-inner">
+          <div className="section-heading inverse">
+            <div>
+              <p className="section-kicker">05 · STUDY & LIFE</p>
+              <h2>培养地点、住宿与补助</h2>
+            </div>
+            <p>以下来自 2026 年学生版报考指南，是了解在读生活的参考快照，不是研究所待遇承诺；入学前应再次核对。</p>
+          </div>
+          <div className="life-grid">
+            <article><span>培养地点</span><h3>研一在国科大<br />研二回沈阳</h3><p>学生整理口径：全日制学硕研一在雁栖湖，全日制专硕研一在玉泉路，研二回到沈阳所内。</p></article>
+            <article><span>实习安排</span><h3>是否实习，<br />需要和导师确认</h3><p>原指南描述所内氛围相对轻松，但能否外出实习取决于导师和课题安排，不宜提前作统一判断。</p></article>
+            <article><span>住宿条件</span><h3>四人间<br />独立卫浴</h3><p>这是学生材料中的所内住宿描述，实际房型、床位与住宿政策可能随年度变化。</p></article>
+            <article className="life-accent"><span>学生整理补助</span><h3>研一 2400<br />研二、研三 1800–3600</h3><p>单位为元/月，仅复述 2026 年指南记录。补助构成与金额可能因年度、课题组和考核情况变化。</p></article>
+          </div>
+        </div>
+      </section>
+
       <section className="section experience-section">
         <div className="section-heading compact">
           <div>
-            <p className="section-kicker">05 · EXPERIENCE</p>
+            <p className="section-kicker">06 · EXPERIENCE</p>
             <h2>数据之外，看看亲历者怎么说</h2>
           </div>
           <p>经验内容用于理解流程和准备方法，不代替官方规则，也不代表所有考生都会遇到相同情况。</p>
         </div>
         <div className="experience-list">
           {experienceItems.map((item, index) => (
-            <a href={`/experiences#year-${item.year}`} key={`${item.year}-${item.title}`}>
+            <a href={`/experiences/${item.slug}`} key={item.slug}>
               <span className="experience-index">{String(index + 1).padStart(2, "0")}</span>
               <div><span>{item.year} · {item.tag}</span><h3>{item.title}</h3></div>
               <span className="experience-arrow" aria-hidden="true">↗</span>
             </a>
           ))}
         </div>
-        <a className="coming-soon" href="/experiences"><span>查看完整归档</span><p>现已按年份和阶段整理 2018—2026 年经验文档目录。</p><strong>进入资料库 ↗</strong></a>
+        <Link className="coming-soon" href="/experiences"><span>查看完整文章库</span><p>24 篇唯一资料均已转为网页全文，可直接在站内阅读。</p><strong>进入资料库 ↗</strong></Link>
       </section>
 
       <section className="resources-section" id="resources">
         <div className="resources-inner">
           <div className="resources-copy">
-            <p className="section-kicker">06 · SOURCES</p>
-            <h2>原始资料，<br />可以自己核对</h2>
-            <p>网站只负责整理，不替代原文。重要决定请回到当年招生简章、复试通知和拟录取公告。</p>
+            <p className="section-kicker">07 · SOURCES</p>
+            <h2>核心资料，<br />都在站内阅读</h2>
+            <p>指南、数据和经验文章统一使用网页呈现。重要决定仍请回到当年招生简章、复试通知和拟录取公告核对。</p>
           </div>
           <div className="resource-links">
-            <a href="/downloads/sict-2026-guide.pdf">
-              <span><i>PDF</i><b>报考指南 1.0</b><small>招生专业、考试科目与复试说明</small></span><strong>下载 ↗</strong>
+            <a href="#overview">
+              <span><i>WEB</i><b>报考指南</b><small>招生专业、考试科目、复试与培养说明</small></span><strong>阅读 ↗</strong>
             </a>
-            <a href="/downloads/sict-2026-data-report.pdf">
-              <span><i>PDF</i><b>2026 数据报告 2.0</b><small>复试、录取、分数段与毕业去向</small></span><strong>下载 ↗</strong>
+            <a href="/data/2026">
+              <span><i>WEB</i><b>2026 数据报告</b><small>复试、录取、分数段与毕业去向</small></span><strong>阅读 ↗</strong>
             </a>
-            <a href="/data">
-              <span><i>XLSX</i><b>2024—2026 录取数据</b><small>用于本站统计，公开页面统一脱敏</small></span><strong>查看 ↗</strong>
-            </a>
+            <Link href="/experiences">
+              <span><i>WEB</i><b>经验文章库</b><small>24 篇初试、复试与回忆题全文</small></span><strong>阅读 ↗</strong>
+            </Link>
           </div>
         </div>
       </section>

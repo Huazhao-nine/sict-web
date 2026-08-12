@@ -55,6 +55,24 @@ export default function Sources() {
         </div>
       </section>
 
+      <section className="brother-sites-section">
+        <div className="brother-sites-inner">
+          <div className="brother-sites-copy">
+            <p className="section-kicker">BROTHER SITES</p>
+            <h2>也看看兄弟研究所<br />怎样整理信息</h2>
+            <p>本站参考它们的信息架构、数据表达和经验文章组织方式。不同研究所的招生政策相互独立，页面之间不混用分数、名额和复试结论。</p>
+          </div>
+          <div className="brother-site-links">
+            <a href="https://iie.cskaoyan.cn" target="_blank" rel="noopener noreferrer">
+              <span>IIE</span><div><strong>信工所考研信息站</strong><small>iie.cskaoyan.cn</small></div><b>访问 ↗</b>
+            </a>
+            <a href="https://cas.cskaoyan.cn" target="_blank" rel="noopener noreferrer">
+              <span>ISCAS</span><div><strong>中科院软件所报考指南</strong><small>cas.cskaoyan.cn</small></div><b>访问 ↗</b>
+            </a>
+          </div>
+        </div>
+      </section>
+
       <section className="disclaimer-block">
         <span>DISCLAIMER</span><div><h2>本站不是研究所官方网站</h2><p>本站与中国科学院沈阳计算技术研究所无隶属关系。内容仅用于学习、交流和经验分享，不提供录取承诺；涉及报考与录取的重要决定，请以研究所及中国科学院大学当年发布的信息为准。</p></div>
       </section>

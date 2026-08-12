@@ -363,11 +363,11 @@ export default function Home() {
             <p>这个网站不是凭空出现的。数据、经验与页面组织都来自许多公开资料和热心分享，我们在此明确记录参考来源。</p>
           </div>
           <div className="thanks-list">
-            <a href="https://github.com/feiyu1104/ISCAS-Application-Guide" target="_blank" rel="noopener noreferrer">
-              <span>01 / BROTHER SITE</span><div><h3>中科院软件所报考指南</h3><p>参考其一站式报考流程、交流群入口、经验分享和贡献致谢结构。</p></div><strong>GitHub ↗</strong>
+            <a href="https://cas.cskaoyan.cn" target="_blank" rel="noopener noreferrer">
+              <span>01 / BROTHER SITE</span><div><h3>中科院软件所报考指南</h3><p>参考其一站式报考流程、交流群入口、经验分享和贡献致谢结构。</p></div><strong>访问网站 ↗</strong>
             </a>
-            <a href="https://github.com/Wzhongkai/iie-cskaoyan-cn" target="_blank" rel="noopener noreferrer">
-              <span>02 / BROTHER SITE</span><div><h3>信工所考研信息站</h3><p>参考其招生数据表达、文章阅读结构和信息分层方式。</p></div><strong>GitHub ↗</strong>
+            <a href="https://iie.cskaoyan.cn" target="_blank" rel="noopener noreferrer">
+              <span>02 / BROTHER SITE</span><div><h3>信工所考研信息站</h3><p>参考其招生数据表达、文章阅读结构和信息分层方式。</p></div><strong>访问网站 ↗</strong>
             </a>
             <div className="thanks-contributors">
               <span>03 / CONTRIBUTORS</span><div><h3>历届考生与资料整理者</h3><p>感谢每一位记录初试方法、复试经历、回忆题目，以及参与录取数据整理和勘误的同学。</p></div><strong>薪火相传</strong>

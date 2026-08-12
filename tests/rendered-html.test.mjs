@@ -28,6 +28,8 @@ test("server-renders the finished SICT guide", async () => {
   assert.match(html, /一键加入 QQ 群/);
   assert.match(html, /中科院软件所报考指南/);
   assert.match(html, /信工所考研信息站/);
+  assert.match(html, /https:\/\/cas\.cskaoyan\.cn/);
+  assert.match(html, /https:\/\/iie\.cskaoyan\.cn/);
   assert.match(html, /qm\.qq\.com\/cgi-bin\/qm\/qr/);
   assert.match(html, /非官方网站/);
   assert.doesNotMatch(html, /\/downloads\//);
@@ -69,6 +71,9 @@ test("server-renders experience and source archives", async () => {
   assert.match(experienceHtml, /阅读全文/);
   assert.match(sourceHtml, /三层来源/);
   assert.match(sourceHtml, /核心整理材料已经转成网页/);
+  assert.match(sourceHtml, /也看看兄弟研究所/);
+  assert.match(sourceHtml, /iie\.cskaoyan\.cn/);
+  assert.match(sourceHtml, /cas\.cskaoyan\.cn/);
   assert.doesNotMatch(`${experienceHtml}${sourceHtml}`, /\/downloads\//);
 });
 

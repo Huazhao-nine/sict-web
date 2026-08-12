@@ -696,6 +696,25 @@ footer { display: grid; min-height: 190px; padding: 50px max(32px, calc((100vw -
 .outcome-education-section .outcome-entity-list { grid-template-columns: 1fr; }
 .outcome-archive-divider { margin: 74px 0; border-top: 1px solid rgba(255,255,255,.22); }
 .outcome-archive-title { margin-bottom: 32px; }
+.compact-outcome-disclaimer { margin-bottom: 28px; }
+.outcome-year-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.outcome-year-card { overflow: hidden; border: 1px solid rgba(255,255,255,.2); background: rgba(9,35,46,.5); }
+.outcome-year-card > header { display: flex; min-height: 102px; padding: 23px 26px; align-items: flex-start; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,.15); gap: 20px; }
+.outcome-year-card > header span { color: var(--sand); font-size: 9px; font-weight: 850; letter-spacing: .11em; }
+.outcome-year-card > header h3 { margin: 8px 0 0; font-family: var(--font-display); font-size: 28px; }
+.outcome-year-card > header > b { padding: 5px 8px; border: 1px solid rgba(255,255,255,.22); color: rgba(255,255,255,.65); font-size: 9px; letter-spacing: .08em; }
+.outcome-year-kpis { display: grid; grid-template-columns: repeat(3, 1fr); }
+.outcome-year-kpis > div { min-height: 124px; padding: 20px 20px 18px; border-right: 1px solid rgba(255,255,255,.13); }
+.outcome-year-kpis > div:last-child { border: 0; }
+.outcome-year-kpis span { display: block; min-height: 31px; color: rgba(255,255,255,.56); font-size: 10px; font-weight: 700; line-height: 1.5; }
+.outcome-year-kpis strong { display: block; margin-top: 8px; font-family: Georgia, serif; font-size: 30px; font-weight: 400; }
+.outcome-year-kpis strong small { font-size: 10px; }
+.outcome-year-kpis p { margin: 4px 0 0; color: var(--sand); font-size: 10px; font-weight: 800; }
+.outcome-year-highlights { padding: 23px 26px; border-top: 1px solid rgba(255,255,255,.15); }
+.outcome-year-highlights > span { color: rgba(255,255,255,.54); font-size: 9px; font-weight: 800; letter-spacing: .1em; }
+.outcome-year-highlights ul { display: flex; margin: 15px 0 0; padding: 0; flex-wrap: wrap; gap: 8px; list-style: none; }
+.outcome-year-highlights li { padding: 7px 10px; background: rgba(255,255,255,.09); color: white; font-size: 11px; font-weight: 700; }
+.outcome-year-note { min-height: 76px; margin: 0; padding: 0 26px 22px; color: rgba(255,255,255,.64); font-size: 11px; line-height: 1.75; }
 .historical-ledger { grid-template-columns: 235px 235px 1fr; }
 .historical-ledger > div strong { font-size: 22px; }
 .historical-program-list article { grid-template-columns: 58px 1fr 360px 180px; }
@@ -753,6 +772,7 @@ footer { display: grid; min-height: 190px; padding: 50px max(32px, calc((100vw -
   .outcome-public-section { grid-template-columns: 230px 1fr; gap: 35px; }
   .outcome-public-section .outcome-brand-list { grid-template-columns: repeat(2, 1fr); }
   .outcome-entity-list { grid-template-columns: 1fr; }
+  .outcome-year-grid { grid-template-columns: 1fr; }
   footer { grid-template-columns: 1fr auto; }
   .footer-meta { display: none; }
 }
@@ -867,6 +887,11 @@ footer { display: grid; min-height: 190px; padding: 50px max(32px, calc((100vw -
   .outcome-public-section > header { grid-row: auto; }
   .outcome-public-section header h3 { margin-bottom: 18px; }
   .outcome-public-section .outcome-brand-list { grid-template-columns: 1fr 1fr; }
+  .outcome-year-card > header { min-height: 90px; padding: 21px 20px; }
+  .outcome-year-kpis > div { min-height: 112px; padding: 18px 13px; }
+  .outcome-year-kpis strong { font-size: 27px; }
+  .outcome-year-highlights { padding: 22px 20px; }
+  .outcome-year-note { min-height: 0; padding: 0 20px 22px; }
   .outcome-boundaries p { grid-template-columns: 1fr; gap: 4px; }
   .outcome-archive-divider { margin: 58px 0; }
   .marker-grid { grid-template-columns: 1fr; }

@@ -17,37 +17,27 @@ const programs = [
   { name: "计算机技术", code: "085404", interviewed: 72, admitted: 33, rejected: 39, rate: "45.83%" },
 ];
 
-const outcomeCategories2026 = [
-  { name: "互联网 / 科技大厂", count: 50, share: "57.5%", className: "technology" },
-  { name: "国央企 / 事业单位 / 公务员", count: 20, share: "23.0%", className: "institutional" },
-  { name: "读博 / 深造", count: 8, share: "9.2%", className: "education" },
-];
-
-const technologyOutcomes2026 = [
-  { name: "百度", count: 10 }, { name: "京东", count: 9 }, { name: "华为系", count: 7 },
-  { name: "美团", count: 5 }, { name: "快手", count: 5 }, { name: "字节跳动", count: 3 },
-  { name: "好未来", count: 3 }, { name: "小红书", count: 2 }, { name: "小米", count: 2 },
-  { name: "腾讯", count: 1 }, { name: "滴滴", count: 1 }, { name: "微软", count: 1 }, { name: "广联达", count: 1 },
-];
-
-const institutionalOutcomes2026 = [
-  { name: "中国科学院沈阳计算技术研究所有限公司", detail: "报告归类为院所转制单位", count: 3 },
-  { name: "中国科学院沈阳自动化研究所", detail: "科研院所", count: 1 },
-  { name: "中国电力科学研究院 / 北京科东电力", detail: "国家电网体系", count: 2 },
-  { name: "北京计算机应用和仿真技术有限公司", detail: "航天科工体系", count: 1 },
-  { name: "中航工业信息技术中心", detail: "航空工业", count: 1 },
-  { name: "广西电网北海供电局", detail: "南方电网", count: 1 },
-  { name: "大连华锐重工集团股份有限公司", detail: "地方国企", count: 1 },
-  { name: "公安部第一研究所", detail: "报告标注事业编", count: 1 },
-  { name: "中原人工智能产业技术研究院", detail: "研究机构", count: 1 },
-  { name: "金融国央企", detail: "人保财险、农发行、工行、中行", count: 4 },
-  { name: "党政机关", detail: "组织部、海关、税务系统等", count: 4 },
-];
-
-const educationOutcomes2026 = [
-  { name: "中国科学院大学（沈阳计算技术研究所）", detail: "读博 / 深造", count: 1 },
-  { name: "中国科学院大学（自动化所）", detail: "读博 / 深造", count: 1 },
-  { name: "高校深造", detail: "北大、复旦、南大、哈工大、北理工、东北大学", count: 6 },
+const outcomeYears = [
+  {
+    year: "2026",
+    sample: 87,
+    employment: 79,
+    employmentRate: "90.8%",
+    furtherStudy: 8,
+    furtherStudyRate: "9.2%",
+    highlights: ["百度 10", "京东 9", "华为 7", "美团 5", "快手 5"],
+    note: "就业样本中，科技大厂 50 人，国央企、事业单位及公务员 20 人；这里只展示概览和人数较多的去向。",
+  },
+  {
+    year: "2025",
+    sample: 114,
+    employment: 92,
+    employmentRate: "80.7%",
+    furtherStudy: 22,
+    furtherStudyRate: "19.3%",
+    highlights: ["国科大读博 9", "百度 6", "美团 5", "京东 5", "小米 4"],
+    note: "2025 届包含非全日制样本。现有汇总未进一步拆分国央企、公务员等就业类别，因此不作推算。",
+  },
 ];
 
 export default function Report2026() {
@@ -116,61 +106,27 @@ export default function Report2026() {
 
       <section className="report-outcomes" id="outcomes">
         <div className="report-outcomes-inner">
-          <div className="report-title-row inverse"><div><p className="section-kicker">05 · OUTCOMES</p><h2>2026 届毕业去向分析</h2></div><p>本节只采用内部《就业去向分析报告》的统计口径，并仅公开<strong>科技大厂、国央企及公务员、读博深造</strong>三类去向。</p></div>
-          <div className="outcome-disclaimer">
-            <span>非官方 · 民间统计</span>
-            <p><strong>本组数据来自学生整理的内部分析报告，并非研究所官方就业质量报告。</strong>报告可能存在漏报、重复、归类偏差、单位名称笔误或后续去向变化，仅用于了解样本结构，不代表官方毕业人数、就业率、薪酬水平或就业承诺。</p>
-            <Link href="/disclaimer">阅读完整免责声明 →</Link>
+          <div className="report-title-row inverse"><div><p className="section-kicker">05 · OUTCOMES</p><h2>毕业去向概览</h2></div><p>只做年度概览，不公开个人记录和原始材料。<strong>2025、2026 使用相同版式，方便快速对照。</strong></p></div>
+          <div className="outcome-disclaimer compact-outcome-disclaimer">
+            <span>非官方 · 民间整理</span>
+            <p>数据仅供了解大致去向，可能存在遗漏、归类误差或后续变化，<strong>不代表官方就业率、薪资水平或就业承诺。</strong></p>
+            <Link href="/disclaimer">完整免责声明 →</Link>
           </div>
-          <div className="outcome-method-strip" aria-label="毕业去向分析报告统计口径">
-            <div><span>报告日期</span><strong>2026.07.21</strong></div>
-            <div><span>地域口径</span><strong>不区分城市</strong></div>
-            <div><span>主体口径</span><strong>同集团合并</strong></div>
+          <div className="outcome-year-grid">
+            {outcomeYears.map((item) => (
+              <article className="outcome-year-card" key={item.year}>
+                <header><div><span>GRADUATE OUTCOMES</span><h3>{item.year} 届</h3></div><b>学生整理</b></header>
+                <div className="outcome-year-kpis">
+                  <div><span>统计样本</span><strong>{item.sample}<small> 人</small></strong></div>
+                  <div><span>就业</span><strong>{item.employment}<small> 人</small></strong><p>{item.employmentRate}</p></div>
+                  <div><span>读博 / 深造</span><strong>{item.furtherStudy}<small> 人</small></strong><p>{item.furtherStudyRate}</p></div>
+                </div>
+                <div className="outcome-year-highlights"><span>主要去向</span><ul>{item.highlights.map((entry) => <li key={entry}>{entry}</li>)}</ul></div>
+                <p className="outcome-year-note">{item.note}</p>
+              </article>
+            ))}
           </div>
-          <div className="outcome-kpis">
-            <article><span>样本总量</span><strong>87<small> 人</small></strong><p>所有人数与比例均按报告口径</p></article>
-            <article><span>本页公开三类</span><strong>78<small> 人</small></strong><p>占报告样本 89.7%</p></article>
-            <article><span>头部五组</span><strong>36<small> 人</small></strong><p>占总样本 41.4%，占大厂去向 72%</p></article>
-          </div>
-
-          <div className="outcome-category-grid public-category-grid" aria-label="2026 届公开的三类毕业去向">
-            {outcomeCategories2026.map((item, index) => <article key={item.name}><i>0{index + 1}</i><span>{item.name}</span><strong>{item.count}<small> 人</small></strong><p>占 87 人总样本 {item.share}</p></article>)}
-          </div>
-          <div className="outcome-composition public-composition" aria-label="2026 届公开三类去向占总样本比例">
-            {outcomeCategories2026.map((item) => <span className={item.className} style={{ width: item.share }} key={item.name}><b>{item.share}</b></span>)}
-          </div>
-
-          <div className="outcome-public-sections">
-            <article className="outcome-public-section outcome-tech-section">
-              <header><div><span>01 · TECHNOLOGY</span><h3>互联网 / 科技大厂</h3></div><strong>50<small> 人 · 57.5%</small></strong></header>
-              <ol className="outcome-brand-list">{technologyOutcomes2026.map((item) => <li key={item.name}><b>{item.name}</b><strong>{item.count}</strong></li>)}</ol>
-              <p>百度、京东、华为、美团、快手五组合计 <strong>36 人</strong>，占总样本 41.4%，占该分类 72%。</p>
-            </article>
-
-            <article className="outcome-public-section">
-              <header><div><span>02 · PUBLIC SECTOR</span><h3>国央企 / 事业单位 / 公务员</h3></div><strong>20<small> 人 · 23.0%</small></strong></header>
-              <ol className="outcome-entity-list">{institutionalOutcomes2026.map((item) => <li key={item.name}><p><b>{item.name}</b><small>{item.detail}</small></p><strong>{item.count}</strong></li>)}</ol>
-            </article>
-
-            <article className="outcome-public-section outcome-education-section">
-              <header><div><span>03 · FURTHER STUDY</span><h3>读博 / 深造</h3></div><strong>8<small> 人 · 9.2%</small></strong></header>
-              <ol className="outcome-entity-list">{educationOutcomes2026.map((item) => <li key={item.name}><p><b>{item.name}</b><small>{item.detail}</small></p><strong>{item.count}</strong></li>)}</ol>
-            </article>
-          </div>
-          <p className="outcome-note"><strong>公开边界：</strong>本页只公开以上三类，三类合计 78 人，占报告 87 人样本的 89.7%；其余分类不展示。百度、京东、华为等关联主体按集团合并；高校按读博 / 深造统计，科研院所就业按报告分类统计。</p>
-
-          <div className="outcome-archive-divider" />
-          <div className="report-title-row inverse outcome-archive-title"><div><p className="section-kicker">2025 · ARCHIVE</p><h2>2025 届毕业去向概览</h2></div><p>共整理 114 条去向记录，包含非全日制。页面仅展示汇总结果，不公开个人记录。</p></div>
-          <div className="outcome-kpis">
-            <article><span>去向记录</span><strong>114<small> 条</small></strong><p>报告统计样本</p></article>
-            <article><span>就业</span><strong>92<small> 人</small></strong><p>约占 80.7%</p></article>
-            <article><span>继续读博</span><strong>22<small> 人</small></strong><p>约占 19.3%</p></article>
-          </div>
-          <div className="outcome-columns">
-            <article><span>主要城市</span><ol><li><b>北京</b><strong>46</strong></li><li><b>上海</b><strong>13</strong></li><li><b>沈阳</b><strong>11</strong></li><li><b>深圳</b><strong>5</strong></li><li><b>重庆</b><strong>3</strong></li></ol></article>
-            <article><span>人数较多的去向</span><ol><li><b>中国科学院大学（读博）</b><strong>9</strong></li><li><b>百度</b><strong>6</strong></li><li><b>美团</b><strong>5</strong></li><li><b>京东</b><strong>5</strong></li><li><b>北京小米</b><strong>4</strong></li></ol></article>
-          </div>
-          <p className="outcome-note">这组数据描述 2025 届已整理样本，不代表就业承诺，也不用于评价某一培养方向。单位名称按报告汇总口径简写。</p>
+          <p className="outcome-note"><strong>阅读提示：</strong>两年的样本范围和分类粒度不同，只适合分别了解当届的大致去向，不宜直接比较就业质量。</p>
         </div>
       </section>
 
@@ -186,7 +142,7 @@ export default function Report2026() {
       </section>
 
       <section className="section report-source-card">
-        <div><span>来源</span><h2>招生报告与就业去向分析报告</h2><p>招录部分来自学生基于公开名单整理的《2026 年沈阳计算技术研究所考研数据报告 2.0》；毕业去向部分<strong>仅采用学生内部《就业去向分析报告》</strong>。两者均为非官方材料；内部文件只用于核对，不上传网站或 GitHub。</p></div>
+        <div><span>来源</span><h2>公开信息与学生整理</h2><p>招录部分来自公开名单的学生整理；毕业去向仅展示脱敏后的年度概览。相关内容均为<strong>非官方资料</strong>，可能存在遗漏或统计误差，请勿作为官方结论传播。</p></div>
         <div className="report-source-actions"><Link href="/sources">查看来源规则 →</Link><Link href="/experiences">阅读经验文章 →</Link></div>
       </section>
       <SiteFooter />

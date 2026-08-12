@@ -32,7 +32,7 @@ export default function Sources() {
         </div>
         <div className="source-layer-grid">
           <article><span>LEVEL 01</span><h2>官方信息</h2><p>国科大招生目录、研究所招生简章、复试方案、复试名单与拟录取公告。</p><strong>最高优先级</strong></article>
-          <article><span>LEVEL 02</span><h2>学生整理</h2><p>2024—2026 录取表、2026 数据报告、毕业去向民间汇总和报考指南。用于聚合、对照和解释。</p><strong>需核对口径</strong></article>
+          <article><span>LEVEL 02</span><h2>学生整理</h2><p>2024—2026 录取数据、毕业去向概览和报考指南。用于聚合、对照和解释。</p><strong>需核对口径</strong></article>
           <article><span>LEVEL 03</span><h2>考生回忆</h2><p>初试方法、复试流程、笔试题目和面试感受。只代表特定年份与个人经历。</p><strong>不可当作规则</strong></article>
         </div>
       </section>
@@ -53,7 +53,7 @@ export default function Sources() {
         <div className="privacy-rules">
           <p><span>01</span><strong>默认不展示姓名</strong>数据页只发布汇总结果，不公开结构化录取表中的个人行。</p>
           <p><span>02</span><strong>不公开联系方式</strong>导师资料中的电话、邮箱和未经验证的主观评价不直接上站。</p>
-          <p><span>03</span><strong>内部材料只做有限汇总</strong>毕业去向仅公开科技大厂、国央企及公务员、读博深造三类聚合；内部报告本身不上传，其他企业明细和个人信息不公开。</p>
+          <p><span>03</span><strong>毕业去向只做概览</strong>页面仅展示脱敏后的年度汇总，不公开个人记录、原始明细或可识别个人的信息。</p>
           <p><span>04</span><strong>保留纠错空间</strong>学生整理可能存在遗漏或统计误差，后续应提供明确的勘误渠道。</p>
         </div>
       </section>

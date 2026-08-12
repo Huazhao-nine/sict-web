@@ -32,15 +32,22 @@ const technologyOutcomes2026 = [
 ];
 
 const institutionalOutcomes2026 = [
+  { name: "中国科学院沈阳计算技术研究所有限公司", detail: "报告归类为院所转制单位", count: 3 },
+  { name: "中国科学院沈阳自动化研究所", detail: "科研院所", count: 1 },
+  { name: "中国电力科学研究院 / 北京科东电力", detail: "国家电网体系", count: 2 },
+  { name: "北京计算机应用和仿真技术有限公司", detail: "航天科工体系", count: 1 },
+  { name: "中航工业信息技术中心", detail: "航空工业", count: 1 },
+  { name: "广西电网北海供电局", detail: "南方电网", count: 1 },
+  { name: "大连华锐重工集团股份有限公司", detail: "地方国企", count: 1 },
+  { name: "公安部第一研究所", detail: "报告标注事业编", count: 1 },
+  { name: "中原人工智能产业技术研究院", detail: "研究机构", count: 1 },
   { name: "金融国央企", detail: "人保财险、农发行、工行、中行", count: 4 },
   { name: "党政机关", detail: "组织部、海关、税务系统等", count: 4 },
-  { name: "中国科学院沈阳计算技术研究所有限公司", detail: "报告归类为院所转制单位", count: 3 },
-  { name: "电力科研体系", detail: "中国电科院、北京科东", count: 2 },
-  { name: "其他央国企与科研事业单位", detail: "自动化所、航天、航空、电网、重工及研究机构等", count: 7 },
 ];
 
 const educationOutcomes2026 = [
-  { name: "中国科学院大学相关培养单位", detail: "沈阳计算所、自动化所", count: 2 },
+  { name: "中国科学院大学（沈阳计算技术研究所）", detail: "读博 / 深造", count: 1 },
+  { name: "中国科学院大学（自动化所）", detail: "读博 / 深造", count: 1 },
   { name: "高校深造", detail: "北大、复旦、南大、哈工大、北理工、东北大学", count: 6 },
 ];
 
@@ -48,7 +55,10 @@ const otherOutcomes2026 = [
   { name: "北京中科瑞通信息科技有限公司", detail: "报告归类为大数据 / NLP", count: 3 },
   { name: "上海思格源智能科技有限公司", detail: "报告归类为 AI + 储能", count: 1 },
   { name: "中科智禾数字科技（北京）有限公司", detail: "报告归类为教育 AI", count: 1 },
-  { name: "其余名称待核企业", detail: "4 家单位存在疑似笔误，网页不作主体推断", count: 4 },
+  { name: "尘智能（深圳）有限公司", detail: "报告注：疑为“星尘智能”", count: 1 },
+  { name: "北京迅志技术有限公司", detail: "报告归类为小型技术公司", count: 1 },
+  { name: "北京调科通用技术有限公司", detail: "报告归类为小型技术公司", count: 1 },
+  { name: "兰陵县智行机械销售有限公司", detail: "报告归类为传统小微企业", count: 1 },
 ];
 
 export default function Report2026() {
@@ -117,20 +127,21 @@ export default function Report2026() {
 
       <section className="report-outcomes" id="outcomes">
         <div className="report-outcomes-inner">
-          <div className="report-title-row inverse"><div><p className="section-kicker">05 · OUTCOMES</p><h2>2026 届毕业去向民间汇总</h2></div><p>分析报告纳入 <strong>87 人</strong>，按集团归并并分为四类。这里只展示脱敏后的单位级聚合，不公开个人记录，也不提供内部文件下载。</p></div>
+          <div className="report-title-row inverse"><div><p className="section-kicker">05 · OUTCOMES</p><h2>2026 届毕业去向分析</h2></div><p>本节只采用内部《就业去向分析报告》的统计口径：<strong>样本 87 人、去向记录 56 条</strong>，不混用截图或其他材料中的数字。</p></div>
           <div className="outcome-disclaimer">
             <span>非官方 · 民间统计</span>
-            <p><strong>本组数据来自学生内部汇总及其二次分析，并非研究所官方就业质量报告。</strong>它可能存在漏报、重复、归类偏差、单位名称笔误或后续去向变化，仅用于了解样本结构，不代表官方毕业人数、就业率、薪酬水平或就业承诺，也请勿据此识别个人。</p>
+            <p><strong>本组数据来自学生整理的内部分析报告，并非研究所官方就业质量报告。</strong>报告可能存在漏报、重复、归类偏差、单位名称笔误或后续去向变化，仅用于了解样本结构，不代表官方毕业人数、就业率、薪酬水平或就业承诺。</p>
             <Link href="/disclaimer">阅读完整免责声明 →</Link>
           </div>
-          <div className="outcome-kpis">
-            <article><span>分析样本</span><strong>87<small> 人</small></strong><p>分类人数与比例均以此为分母</p></article>
-            <article><span>报告标注</span><strong>56<small> 条</small></strong><p>去向记录，不区分城市、按集团合并</p></article>
-            <article className="outcome-conflict-kpi"><span>原图合计栏</span><strong>116<small> 人</small></strong><p>与逐项合计相差 29 人，原因不明</p></article>
+          <div className="outcome-method-strip" aria-label="毕业去向分析报告统计口径">
+            <div><span>报告日期</span><strong>2026.07.21</strong></div>
+            <div><span>地域口径</span><strong>不区分城市</strong></div>
+            <div><span>主体口径</span><strong>同集团合并</strong></div>
           </div>
-          <div className="outcome-discrepancy">
-            <span>口径冲突</span>
-            <p><strong>原始截图底部标注 116 人，但分析报告逐项分类仅合计 87 人。</strong>两者相差 29 人，现有材料无法解释。所以下方比例只描述报告纳入的 87 人样本，<b>不能把 87 或 116 当作经核实的官方届别总人数。</b></p>
+          <div className="outcome-kpis">
+            <article><span>样本总量</span><strong>87<small> 人</small></strong><p>所有人数与比例均按报告口径</p></article>
+            <article><span>去向记录</span><strong>56<small> 条</small></strong><p>报告标注，不区分城市</p></article>
+            <article><span>头部五组</span><strong>36<small> 人</small></strong><p>占总样本 41.4%，占大厂去向 72%</p></article>
           </div>
 
           <div className="outcome-category-grid" aria-label="2026 届毕业去向样本分类">
@@ -141,8 +152,8 @@ export default function Report2026() {
           </div>
 
           <div className="outcome-columns outcome-main-detail">
-            <article><span>互联网 / 科技大厂 · 按集团归并</span><ol>{technologyOutcomes2026.map((item) => <li key={item.name}><b>{item.name}</b><strong>{item.count}</strong></li>)}</ol></article>
-            <article className="outcome-boundaries"><span>可以得出的中性观察</span><div><p><b>头部集团较集中</b>百度、京东、华为、美团、快手合计 36 人，占 87 人样本的 41.4%，占大厂分类的 72%。</p><p><b>去向类型多元</b>样本同时包括科技企业、国央企及事业单位、深造和其他企业。</p><p><b>不能评价“就业质量”</b>材料没有岗位、薪酬、工作地点、满意度或未就业样本，不能据此判断个体就业结果。</p></div></article>
+            <article className="outcome-brand-card"><span>互联网 / 科技大厂 · 50 人</span><ol className="outcome-brand-list">{technologyOutcomes2026.map((item) => <li key={item.name}><b>{item.name}</b><strong>{item.count}</strong></li>)}</ol></article>
+            <article className="outcome-boundaries"><span>报告中的结构观察</span><div><p><b>头部集团集中</b>百度、京东、华为、美团、快手合计 36 人，占总样本 41.4%，占大厂去向 72%。</p><p><b>去向类型多元</b>报告样本覆盖互联网与科技企业、国央企及事业单位、深造和其他企业。</p><p><b>阅读时保留边界</b>报告没有岗位、薪酬、工作地点或未就业样本，不据此延伸判断个人待遇和整体就业率。</p></div></article>
           </div>
 
           <div className="outcome-detail-grid">
@@ -150,7 +161,7 @@ export default function Report2026() {
             <article><div><span>读博 / 深造</span><strong>8<small> 人</small></strong></div><ol>{educationOutcomes2026.map((item) => <li key={item.name}><p><b>{item.name}</b><small>{item.detail}</small></p><strong>{item.count}</strong></li>)}</ol></article>
             <article><div><span>中小厂 / 初创 / 其他企业</span><strong>9<small> 人</small></strong></div><ol>{otherOutcomes2026.map((item) => <li key={item.name}><p><b>{item.name}</b><small>{item.detail}</small></p><strong>{item.count}</strong></li>)}</ol></article>
           </div>
-          <p className="outcome-note"><strong>归并说明：</strong>百度、京东、华为等关联主体按集团合并；高校按深造统计，科研院所就业按报告分类统计。部分小微企业名称疑有笔误，网页不继续猜测或公开未经核实的主体名称。</p>
+          <p className="outcome-note"><strong>报告口径：</strong>百度、京东、华为等关联主体按集团合并；高校去向按读博 / 深造统计，科研院所就业按事业单位统计；报告已注明个别小微企业名称可能有笔误，网页按报告原文转写并保留提示。</p>
 
           <div className="outcome-archive-divider" />
           <div className="report-title-row inverse outcome-archive-title"><div><p className="section-kicker">2025 · ARCHIVE</p><h2>2025 届毕业去向概览</h2></div><p>共整理 114 条去向记录，包含非全日制。页面仅展示汇总结果，不公开个人记录。</p></div>
@@ -179,7 +190,7 @@ export default function Report2026() {
       </section>
 
       <section className="section report-source-card">
-        <div><span>来源</span><h2>招生报告与学生去向汇总</h2><p>招录部分来自学生基于公开名单整理的《2026 年沈阳计算技术研究所考研数据报告 2.0》；毕业去向来自学生内部汇总及二次分析报告。两者均为<strong>非官方材料</strong>。内部文件仅用于核对，未上传网站或 GitHub；公开页面只保留脱敏聚合结果。</p></div>
+        <div><span>来源</span><h2>招生报告与就业去向分析报告</h2><p>招录部分来自学生基于公开名单整理的《2026 年沈阳计算技术研究所考研数据报告 2.0》；毕业去向部分<strong>仅采用学生内部《就业去向分析报告》</strong>。两者均为非官方材料；内部文件只用于核对，不上传网站或 GitHub。</p></div>
         <div className="report-source-actions"><Link href="/sources">查看来源规则 →</Link><Link href="/experiences">阅读经验文章 →</Link></div>
       </section>
       <SiteFooter />

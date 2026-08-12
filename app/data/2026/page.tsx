@@ -5,7 +5,7 @@ import { ScoreBandReport, ScoreStatistics } from "./report-view";
 
 export const metadata: Metadata = {
   title: "2026 年考研数据报告",
-  description: "沈阳计算所 2026 年复试、拟录取、专业分布、分数段和成绩统计。",
+  description: "沈阳计算所 2026 年复试、拟录取、专业分布、分数段、成绩统计与毕业去向民间汇总。",
 };
 
 export const dynamic = "force-static";
@@ -15,6 +15,13 @@ const programs = [
   { name: "计算机软件与理论", code: "081202", interviewed: 10, admitted: 7, rejected: 3, rate: "70.00%" },
   { name: "计算机应用技术", code: "081203", interviewed: 18, admitted: 8, rejected: 10, rate: "44.44%" },
   { name: "计算机技术", code: "085404", interviewed: 72, admitted: 33, rejected: 39, rate: "45.83%" },
+];
+
+const leadingOutcomes2026 = [
+  { name: "百度在线网络技术（北京）有限公司", count: 7 },
+  { name: "北京美团大数据科技有限公司", count: 6 },
+  { name: "北京三快在线科技有限公司", count: 5 },
+  { name: "北京达佳互联信息技术有限公司", count: 4 },
 ];
 
 export default function Report2026() {
@@ -30,9 +37,9 @@ export default function Report2026() {
           <p>基于一志愿复试名单与拟录取名单整理。<strong>先看总体竞争，再拆到学习方式、专业、分数段和成绩统计。</strong></p>
         </div>
         <div className="report-hero-ledger">
-          <div><span>报告状态</span><strong>完整年度</strong></div>
-          <div><span>更新日期</span><strong>2026.04.27</strong></div>
-          <div><span>数据完整率</span><strong>100%<small>（报告口径）</small></strong></div>
+          <div><span>招录报告</span><strong>完整年度</strong></div>
+          <div><span>更新日期</span><strong>2026.08.12</strong></div>
+          <div><span>招录数据完整率</span><strong>100%<small>（报告口径）</small></strong></div>
         </div>
       </section>
 
@@ -83,7 +90,25 @@ export default function Report2026() {
 
       <section className="report-outcomes" id="outcomes">
         <div className="report-outcomes-inner">
-          <div className="report-title-row inverse"><div><p className="section-kicker">05 · OUTCOMES</p><h2>2025 届毕业去向概览</h2></div><p>共整理 114 条去向记录，包含非全日制。页面仅展示汇总结果，不公开个人记录。</p></div>
+          <div className="report-title-row inverse"><div><p className="section-kicker">05 · OUTCOMES</p><h2>2026 届毕业去向民间汇总</h2></div><p>原始图片合计 <strong>116 人</strong>。这里只展示单位层级的聚合信息，不公开个人记录，也不提供内部原图下载。</p></div>
+          <div className="outcome-disclaimer">
+            <span>非官方 · 民间统计</span>
+            <p><strong>本组数据来自学生内部汇总，并非研究所官方就业质量报告。</strong>它可能存在漏报、重复、单位名称未归并或后续去向变化，仅用于了解样本分布，不代表官方就业率、薪酬水平或就业承诺，也请勿据此识别个人。</p>
+            <Link href="/disclaimer">阅读完整免责声明 →</Link>
+          </div>
+          <div className="outcome-kpis">
+            <article><span>原图合计</span><strong>116<small> 人</small></strong><p>民间汇总样本，并非官方总人数</p></article>
+            <article><span>单项最高</span><strong>7<small> 人</small></strong><p>按原图单位名称逐行统计</p></article>
+            <article><span>公开粒度</span><strong className="outcome-word-kpi">单位级</strong><p>不展示姓名、岗位与联系方式</p></article>
+          </div>
+          <div className="outcome-columns">
+            <article><span>图片中可清晰核对的高频去向</span><ol>{leadingOutcomes2026.map((item) => <li key={item.name}><b>{item.name}</b><strong>{item.count}</strong></li>)}</ol></article>
+            <article className="outcome-boundaries"><span>阅读边界</span><div><p><b>不是完整单位榜单</b>原图清晰度有限，网页只转写能够可靠辨认的高频条目，其余人数仍计入 116 人合计。</p><p><b>不把去向等同于就业</b>原图同时包含企业、高校、科研院所和公共部门，不据此自行计算就业率或升学率。</p><p><b>不合并相似名称</b>关联企业、分公司及相似单位名称沿用原表口径，避免二次推断。</p></div></article>
+          </div>
+          <p className="outcome-note"><strong>口径说明：</strong>“116 人”来自原图合计栏；高频单位由图片人工转写。若后续获得更清晰、可公开且已脱敏的材料，再补充完整单位分布。</p>
+
+          <div className="outcome-archive-divider" />
+          <div className="report-title-row inverse outcome-archive-title"><div><p className="section-kicker">2025 · ARCHIVE</p><h2>2025 届毕业去向概览</h2></div><p>共整理 114 条去向记录，包含非全日制。页面仅展示汇总结果，不公开个人记录。</p></div>
           <div className="outcome-kpis">
             <article><span>去向记录</span><strong>114<small> 条</small></strong><p>报告统计样本</p></article>
             <article><span>就业</span><strong>92<small> 人</small></strong><p>约占 80.7%</p></article>
@@ -109,7 +134,7 @@ export default function Report2026() {
       </section>
 
       <section className="section report-source-card">
-        <div><span>来源</span><h2>2026 年沈阳计算技术研究所考研数据报告 2.0</h2><p>原始整理材料已转写为本网页。学生基于公开名单整理，非官方材料，数据与分析可能存在样本偏差或统计误差。</p></div>
+        <div><span>来源</span><h2>招生报告与学生去向汇总</h2><p>招录部分来自学生基于公开名单整理的《2026 年沈阳计算技术研究所考研数据报告 2.0》；2026 届毕业去向来自学生内部汇总图片。两者均为<strong>非官方材料</strong>，可能存在样本偏差、重复或统计误差。</p></div>
         <div className="report-source-actions"><Link href="/sources">查看来源规则 →</Link><Link href="/experiences">阅读经验文章 →</Link></div>
       </section>
       <SiteFooter />

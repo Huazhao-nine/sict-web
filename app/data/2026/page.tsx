@@ -20,17 +20,17 @@ const programs = [
 const outcomeYears = [
   {
     year: "2026",
-    sample: 87,
-    employment: 79,
-    employmentRate: "90.8%",
+    sample: 86,
+    employment: 78,
+    employmentRate: "90.7%",
     furtherStudy: 8,
-    furtherStudyRate: "9.2%",
+    furtherStudyRate: "9.3%",
     paths: [
-      { label: "大厂", value: "50 人", detail: "百度、京东、华为等" },
-      { label: "公务员与体制内", value: "20 人", detail: "含国央企、事业单位" },
-      { label: "读博深造", value: "8 人", detail: "升学及读博" },
+      { label: "大厂 / 科技企业", value: "50 人", detail: "百度 10 · 京东 9 · 华为体系 7 · 美团 5 · 快手 4" },
+      { label: "公务员 / 党政机关", value: "4 人", detail: "组织部、海关及税务系统" },
+      { label: "读博 / 深造", value: "8 人", detail: "国科大、北大、南大、复旦等" },
     ],
-    note: "分类仅作方向概览，其余去向不展开。",
+    note: "最新表格共 55 条单位记录、合计 86 人；同一集团的不同法人主体按集团归并展示。",
   },
   {
     year: "2025",
@@ -114,7 +114,7 @@ export default function Report2026() {
 
       <section className="report-outcomes" id="outcomes">
         <div className="report-outcomes-inner">
-          <div className="report-title-row inverse"><div><p className="section-kicker">05 · OUTCOMES</p><h2>毕业去向概览</h2></div><p>先看年度样本、就业与深造概况，再简略了解<strong>大厂、公务员及体制内、读博深造</strong>三类方向。</p></div>
+          <div className="report-title-row inverse"><div><p className="section-kicker">05 · OUTCOMES</p><h2>毕业去向概览</h2></div><p>先看年度样本、就业与深造概况，再简略了解<strong>大厂、公务员、读博深造</strong>三类方向。</p></div>
           <div className="outcome-disclaimer compact-outcome-disclaimer">
             <span>非官方 · 民间整理</span>
             <p>数据仅供了解大致去向，可能存在遗漏、归类误差或后续变化，<strong>不代表官方就业率、薪资水平或就业承诺。</strong></p>

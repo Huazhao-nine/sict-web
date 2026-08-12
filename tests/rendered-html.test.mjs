@@ -58,12 +58,14 @@ test("server-renders the complete 2026 annual report", async () => {
   assert.match(html, /成绩统计按学习方式拆分/);
   assert.match(html, /2026 届毕业去向分析/);
   assert.match(html, /样本总量.*87<small> 人/s);
-  assert.match(html, /去向记录.*56<small> 条/s);
+  assert.match(html, /本页公开三类.*78<small> 人/s);
   assert.match(html, /头部五组.*36<small> 人/s);
   assert.match(html, /2026\.07\.21/);
   assert.match(html, /非官方 · 民间统计/);
   assert.match(html, /百度.*10/s);
   assert.match(html, /国央企 \/ 事业单位 \/ 公务员/);
+  assert.match(html, /读博 \/ 深造/);
+  assert.doesNotMatch(html, /北京中科瑞通|上海思格源|中科智禾|尘智能|北京迅志|北京调科|兰陵县智行/);
   assert.doesNotMatch(html, /原图合计栏|相差 29 人|116<small> 人/);
   assert.match(html, /2025 届毕业去向概览/);
   assert.match(html, /全日制拟录取.*49<small> 人/s);

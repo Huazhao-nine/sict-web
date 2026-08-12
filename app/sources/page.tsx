@@ -53,7 +53,7 @@ export default function Sources() {
         <div className="privacy-rules">
           <p><span>01</span><strong>默认不展示姓名</strong>数据页只发布汇总结果，不公开结构化录取表中的个人行。</p>
           <p><span>02</span><strong>不公开联系方式</strong>导师资料中的电话、邮箱和未经验证的主观评价不直接上站。</p>
-          <p><span>03</span><strong>内部材料只做脱敏汇总</strong>毕业去向只依据内部分析报告展示单位级聚合；报告本身不上传，不公开姓名、岗位或其他可识别个人的信息。</p>
+          <p><span>03</span><strong>内部材料只做有限汇总</strong>毕业去向仅公开科技大厂、国央企及公务员、读博深造三类聚合；内部报告本身不上传，其他企业明细和个人信息不公开。</p>
           <p><span>04</span><strong>保留纠错空间</strong>学生整理可能存在遗漏或统计误差，后续应提供明确的勘误渠道。</p>
         </div>
       </section>

@@ -107,10 +107,10 @@ export default function Home() {
         <div className="institute-intro">
           <div>
             <p className="section-kicker">ABOUT · SICT</p>
-            <h2>从国家任务走来的<br />产业技术力量</h2>
+            <h2>认识沈计所</h2>
           </div>
           <div className="institute-intro-copy">
-            <p><strong>沈阳计算始建于 1958 年，</strong>前身为中国科学院沈阳计算技术研究所，2001 年整体转制为高新技术企业。如今以数字化、信息化和智能化技术为主线，重点服务能源、智能制造及特种业务领域。</p>
+            <p><strong>沈阳计算始建于 1958 年，</strong>以数字化、信息化和智能化技术为主要方向，面向能源、智能制造等领域开展科研与产业化工作，同时承担国科大研究生培养任务。</p>
             <a href="https://www.sict.ac.cn/show-26-1-1.html" target="_blank" rel="noopener noreferrer">查看研究所官方介绍 ↗</a>
           </div>
         </div>
@@ -122,23 +122,16 @@ export default function Home() {
           <article><strong>300+</strong><span>每年培养博硕研究生</span></article>
         </div>
 
-        <div className="institute-detail-grid">
-          <article><span>01 / RESEARCH</span><h3>面向真实产业问题</h3><p>围绕能源行业、智能制造产业和特种业务领域开展研发，让算法、系统与工程场景真正连接起来。</p></article>
-          <article><span>02 / PLATFORM</span><h3>国家级平台支撑</h3><p>拥有高档数控国家工程研究中心等三个国家级平台，以及十余个省级科研与创新平台。</p></article>
-          <article><span>03 / EDUCATION</span><h3>完整的培养链条</h3><p>设有计算机科学与技术、软件工程硕士点，计算机应用技术博士点和国家级博士后科研工作站。</p></article>
+        <div className="institute-reasons">
+          <div><span>WHY SICT</span><h3>为什么选择沈计所</h3></div>
+          <ul>
+            <li><b>平台扎实</b><small>国家级科研平台支撑</small></li>
+            <li><b>工程导向</b><small>课题与产业需求联系紧密</small></li>
+            <li><b>培养完整</b><small>硕士、博士与博士后链条</small></li>
+          </ul>
         </div>
 
-        <div className="why-sict">
-          <div className="why-sict-heading"><p className="section-kicker">WHY SICT</p><h2>为什么选择沈计所</h2><p>不把选择包装成口号，重点看平台、培养和真实的发展空间。</p></div>
-          <div className="why-sict-grid">
-            <article><b>科教融合</b><p>国科大培养体系与研究所科研平台结合，研一完成课程学习，之后回所进入课题与工程环境。</p></article>
-            <article><b>工程实战</b><p>长期承担国家重大专项和重点研发任务，研究课题与产业需求联系紧密。</p></article>
-            <article><b>培养完整</b><p>硕士、博士、博士后培养链条齐全，适合继续深造，也能积累工程研发经验。</p></article>
-            <article><b>去向多元</b><p>毕业去向覆盖科技企业、党政机关与继续深造；具体分布可在年度数据报告中查看。</p></article>
-          </div>
-        </div>
-
-        <p className="institute-note"><strong>口径说明：</strong>机构介绍与平台数据据研究所官方简介整理；学科评估为全国第四轮结果。补助与学费信息来自学生材料，可能随年度和培养安排变化，不构成待遇承诺。</p>
+        <p className="institute-note"><strong>口径说明：</strong>机构数据据官方简介整理；补助与学费来自学生材料，实际政策以入学当年通知为准。</p>
       </section>
 
       <section className="section" id="overview">

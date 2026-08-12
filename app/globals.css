@@ -147,7 +147,7 @@ button, input, textarea, select { font: inherit; }
 .value-strip span { margin-top: 14px; color: var(--ink); font-size: 14px; font-weight: 850; }
 .value-strip small { margin-top: 4px; color: var(--ink-soft); font-size: 11px; }
 
-.institute-section { padding-bottom: 92px; }
+.institute-section { padding-bottom: 74px; }
 .institute-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(360px, .82fr); align-items: end; gap: 90px; }
 .institute-intro h2, .why-sict-heading h2 { margin: 0; font-family: var(--font-display); font-size: clamp(40px, 4.8vw, 64px); line-height: 1.12; }
 .institute-intro-copy > p { margin: 0; color: var(--ink-soft); font-size: 15px; line-height: 2; }
@@ -158,17 +158,14 @@ button, input, textarea, select { font: inherit; }
 .institute-ledger article:last-child { border-right: 0; }
 .institute-ledger strong { display: block; color: var(--orange); font-family: Georgia, serif; font-size: 38px; font-weight: 400; line-height: 1; }
 .institute-ledger span { display: block; margin-top: 15px; color: var(--ink-soft); font-size: 12px; font-weight: 750; }
-.institute-detail-grid { display: grid; margin-top: 18px; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-.institute-detail-grid article { min-height: 260px; padding: 28px; border: 1px solid var(--line); background: var(--white); }
-.institute-detail-grid article > span { color: var(--orange); font-family: Georgia, serif; font-size: 10px; letter-spacing: .08em; }
-.institute-detail-grid h3 { margin: 52px 0 14px; font-family: var(--font-display); font-size: 23px; }
-.institute-detail-grid p { margin: 0; color: var(--ink-soft); font-size: 13px; line-height: 1.9; }
-.why-sict { display: grid; margin-top: 70px; padding: 55px; grid-template-columns: .72fr 1.28fr; background: var(--navy); color: white; gap: 70px; }
-.why-sict-heading > p:last-child { margin: 24px 0 0; color: rgba(255,255,255,.65); font-size: 13px; line-height: 1.85; }
-.why-sict-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: rgba(255,255,255,.15); }
-.why-sict-grid article { min-height: 156px; padding: 23px; background: #123440; }
-.why-sict-grid b { color: var(--sand); font-size: 14px; }
-.why-sict-grid p { margin: 12px 0 0; color: rgba(255,255,255,.68); font-size: 12px; line-height: 1.8; }
+.institute-reasons { display: grid; min-height: 126px; margin-top: 18px; padding: 24px 28px; grid-template-columns: 230px 1fr; align-items: center; background: var(--navy); color: white; gap: 40px; }
+.institute-reasons > div > span { color: var(--orange); font-family: Georgia, serif; font-size: 10px; letter-spacing: .1em; }
+.institute-reasons h3 { margin: 8px 0 0; font-family: var(--font-display); font-size: 23px; }
+.institute-reasons ul { display: grid; margin: 0; padding: 0; grid-template-columns: repeat(3, 1fr); list-style: none; gap: 1px; background: rgba(255,255,255,.14); }
+.institute-reasons li { min-height: 72px; padding: 14px 17px; background: #123440; }
+.institute-reasons b, .institute-reasons small { display: block; }
+.institute-reasons b { color: var(--sand); font-size: 13px; }
+.institute-reasons small { margin-top: 5px; color: rgba(255,255,255,.6); font-size: 10px; line-height: 1.5; }
 .institute-note { margin: 22px 0 0; color: var(--ink-soft); font-size: 11px; line-height: 1.85; }
 .institute-note strong { color: var(--ink); }
 
@@ -790,7 +787,7 @@ footer { display: grid; min-height: 190px; padding: 50px max(32px, calc((100vw -
   .thanks-heading .section-kicker { grid-column: auto; margin-bottom: 0; }
   .page-hero { grid-template-columns: 1fr; gap: 48px; }
   .institute-intro { grid-template-columns: 1fr; gap: 30px; }
-  .why-sict { grid-template-columns: 1fr; gap: 40px; }
+  .institute-reasons { grid-template-columns: 1fr; gap: 20px; }
   .pledge-section { grid-template-columns: 1fr; gap: 38px; }
   .page-hero-note { max-width: 620px; }
   .year-card-grid { grid-template-columns: repeat(2, 1fr); }
@@ -847,9 +844,8 @@ footer { display: grid; min-height: 190px; padding: 50px max(32px, calc((100vw -
   .institute-ledger { grid-template-columns: repeat(2, 1fr); }
   .institute-ledger article:nth-child(2) { border-right: 0; }
   .institute-ledger article:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
-  .institute-detail-grid, .why-sict-grid { grid-template-columns: 1fr; }
-  .institute-detail-grid article { min-height: 0; }
-  .why-sict { padding: 30px 22px; }
+  .institute-reasons { padding: 24px 20px; }
+  .institute-reasons ul { grid-template-columns: 1fr; }
   .pledge-section { padding: 70px 18px; }
   .program-card { min-height: 0; padding: 25px 22px; }
   .program-card h3 { margin-top: 42px; font-size: 24px; }

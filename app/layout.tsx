@@ -4,6 +4,7 @@ import "./globals.css";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://sict.cskaoyan.cn";
 const socialImage = `${siteUrl}/og.png`;
 const pagesBasePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const isStaticExport = process.env.NEXT_PUBLIC_STATIC_EXPORT === "true";
 
 export const dynamic = "force-static";
 
@@ -49,7 +50,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://cdn.bootcdn.net" />
         <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/lxgw-wenkai-webfont/1.6.0/style.min.css" />
         <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/lxgw-wenkai-screen-webfont/1.7.0/style.min.css" />
-        {pagesBasePath ? (
+        {isStaticExport ? (
           <script dangerouslySetInnerHTML={{ __html: `document.addEventListener("click",function(e){if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;var a=e.target instanceof Element?e.target.closest("a[href]"):null;if(!a||a.target&&a.target!=="_self"||a.hasAttribute("download"))return;var h=a.getAttribute("href");if(!h||h[0]==="#"||h.indexOf("//")===0)return;if(h[0]==="/"){e.preventDefault();e.stopImmediatePropagation();location.assign(h.indexOf("${pagesBasePath}/")===0?h:"${pagesBasePath}"+h)}},true);` }} />
         ) : null}
       </head>

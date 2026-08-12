@@ -24,6 +24,11 @@ test("server-renders the finished SICT guide", async () => {
   assert.match(html, /初试科目/);
   assert.match(html, /复试怎么考/);
   assert.match(html, /培养地点、住宿与补助/);
+  assert.match(html, /2027 中科院沈计所考研群/);
+  assert.match(html, /一键加入 QQ 群/);
+  assert.match(html, /中科院软件所报考指南/);
+  assert.match(html, /信工所考研信息站/);
+  assert.match(html, /qm\.qq\.com\/cgi-bin\/qm\/qr/);
   assert.match(html, /非官方网站/);
   assert.doesNotMatch(html, /\/downloads\//);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/i);

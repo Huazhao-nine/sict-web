@@ -59,8 +59,10 @@ button, input, textarea, select { font: inherit; }
 .desktop-nav a::after { position: absolute; right: 0; bottom: -8px; left: 0; height: 1px; background: var(--orange); content: ""; transform: scaleX(0); transition: transform .2s ease; }
 .desktop-nav a:hover { color: white; }
 .desktop-nav a:hover::after { transform: scaleX(1); }
-.header-cta { padding: 10px 15px; border: 1px solid rgba(255,255,255,.32); font-size: 11px; font-weight: 700; }
+.header-cta { display: inline-flex; padding: 10px 15px; align-items: center; border: 1px solid rgba(255,255,255,.32); font-size: 11px; font-weight: 700; gap: 7px; }
 .header-cta span { margin-left: 7px; color: var(--orange); }
+.header-group-cta { border-color: rgba(213,189,145,.55); background: rgba(213,189,145,.1); }
+.header-group-cta img { width: 16px; height: 16px; object-fit: contain; }
 .mobile-menu { display: none; position: relative; }
 .mobile-menu summary { display: flex; min-width: 70px; padding: 9px 11px; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,.3); cursor: pointer; list-style: none; color: white; font-size: 10px; font-weight: 750; gap: 8px; }
 .mobile-menu summary::-webkit-details-marker { display: none; }
@@ -70,6 +72,9 @@ button, input, textarea, select { font: inherit; }
 .mobile-menu nav a { display: flex; min-height: 42px; padding: 0 12px; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,.08); color: rgba(255,255,255,.76); font-size: 11px; }
 .mobile-menu nav a:last-child { border: 0; }
 .mobile-menu nav a span { color: var(--orange); }
+.mobile-menu nav .mobile-group-link { margin-top: 5px; border: 1px solid rgba(213,189,145,.3); background: rgba(213,189,145,.08); color: var(--sand); }
+.mobile-group-link img { width: 16px; height: 16px; margin-right: 8px; object-fit: contain; }
+.mobile-group-link span { margin-left: auto; }
 
 .hero {
   position: relative;
@@ -99,6 +104,10 @@ button, input, textarea, select { font: inherit; }
 .button-primary span { margin-left: 28px; }
 .button-primary:hover { border-color: var(--orange-dark); background: var(--orange-dark); }
 .button-ghost:hover { border-color: rgba(255,255,255,.65); background: rgba(255,255,255,.06); }
+.button-group { border-color: var(--sand); background: var(--sand); color: var(--ink); }
+.button-group:hover { border-color: #e1ccaa; background: #e1ccaa; }
+.button-group img { width: 16px; height: 16px; margin-right: 9px; object-fit: contain; }
+.button-group span { margin-left: 17px; color: var(--orange-dark); }
 .source-note { margin: 24px 0 0; color: rgba(255,255,255,.42); font-size: 10px; }
 .snapshot { border: 1px solid rgba(255,255,255,.2); background: rgba(255,255,255,.055); box-shadow: 0 28px 80px rgba(0,0,0,.22); backdrop-filter: blur(10px); }
 .snapshot-head { display: flex; padding: 16px 20px; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,.12); font-size: 10px; font-weight: 800; letter-spacing: .08em; }
@@ -250,6 +259,21 @@ button, input, textarea, select { font: inherit; }
 .coming-soon p { margin: 0; color: var(--ink-soft); font-size: 10px; }
 .coming-soon strong { color: var(--orange); font-size: 9px; }
 
+.community-section { position: relative; padding: 108px 32px; overflow: hidden; background: var(--orange); color: white; scroll-margin-top: 54px; }
+.community-grid { position: absolute; inset: 0; opacity: .13; background-image: linear-gradient(rgba(255,255,255,.45) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.45) 1px, transparent 1px); background-size: 64px 64px; mask-image: linear-gradient(to right, transparent, black); }
+.community-inner { position: relative; z-index: 1; display: grid; width: min(1180px, 100%); margin: 0 auto; grid-template-columns: 1fr 390px; align-items: center; gap: 100px; }
+.community-copy .section-kicker { color: var(--navy); }
+.community-copy h2 { margin: 0; font-family: "Songti SC", STSong, serif; font-size: clamp(42px, 4.8vw, 66px); letter-spacing: -.035em; line-height: 1.12; }
+.community-copy > p:last-child { max-width: 650px; margin: 28px 0 0; color: rgba(255,255,255,.8); font-size: 12px; line-height: 1.9; }
+.community-card { padding: 30px; border: 1px solid rgba(255,255,255,.45); background: var(--navy); box-shadow: 0 26px 70px rgba(65,20,10,.2); }
+.community-card > span { color: var(--sand); font-size: 8px; font-weight: 800; letter-spacing: .16em; }
+.community-card h3 { margin: 35px 0 15px; font-family: "Songti SC", STSong, serif; font-size: 30px; line-height: 1.3; }
+.community-card p { margin: 0; color: rgba(255,255,255,.53); font-size: 9px; line-height: 1.8; }
+.community-button { display: flex; min-height: 52px; margin-top: 28px; padding: 0 17px; align-items: center; border: 1px solid var(--sand); background: var(--sand); color: var(--ink); font-size: 11px; font-weight: 800; }
+.community-button img { width: 18px; height: 18px; margin-right: 10px; object-fit: contain; }
+.community-button strong { margin-left: auto; color: var(--orange); font-size: 15px; }
+.community-card small { display: block; margin-top: 10px; color: rgba(255,255,255,.35); font-size: 7px; }
+
 .resources-section { padding: 110px 32px; background: var(--paper-deep); }
 .resources-inner { display: grid; width: min(1180px, 100%); margin: 0 auto; grid-template-columns: .7fr 1.3fr; gap: 100px; }
 .resources-copy h2 { margin: 0 0 24px; font-family: "Songti SC", STSong, serif; font-size: clamp(40px, 4.4vw, 64px); line-height: 1.08; }
@@ -271,6 +295,22 @@ button, input, textarea, select { font: inherit; }
 .faq-list summary::after { position: absolute; top: 20px; right: 8px; color: var(--orange); content: "+"; font-family: Georgia, serif; font-size: 18px; font-weight: 400; }
 .faq-list details[open] summary::after { content: "−"; }
 .faq-list details p { max-width: 760px; margin: -4px 0 24px 4px; color: var(--ink-soft); font-size: 10px; line-height: 1.85; }
+
+.thanks-section { padding: 108px 32px; background: var(--white); scroll-margin-top: 54px; }
+.thanks-inner { width: min(1180px, 100%); margin: 0 auto; }
+.thanks-heading { display: grid; margin-bottom: 48px; grid-template-columns: 1fr minmax(280px, .65fr); align-items: end; gap: 75px; }
+.thanks-heading .section-kicker { grid-column: 1 / -1; margin-bottom: -50px; }
+.thanks-heading h2 { margin: 0; font-family: "Songti SC", STSong, serif; font-size: clamp(40px, 4.6vw, 62px); line-height: 1.15; }
+.thanks-heading > p:last-child { margin: 0; color: var(--ink-soft); font-size: 11px; line-height: 1.85; }
+.thanks-list { border-top: 2px solid var(--ink); }
+.thanks-list > * { display: grid; min-height: 128px; padding: 22px 12px; grid-template-columns: 150px 1fr 90px; align-items: center; border-bottom: 1px solid var(--line); gap: 24px; transition: padding .2s ease, background .2s ease; }
+.thanks-list > a:hover { padding-right: 20px; padding-left: 20px; background: var(--paper); }
+.thanks-list > * > span { color: var(--orange); font-family: Georgia, serif; font-size: 8px; letter-spacing: .08em; }
+.thanks-list h3 { margin: 0 0 8px; font-family: "Songti SC", STSong, serif; font-size: 18px; }
+.thanks-list p { margin: 0; color: var(--ink-soft); font-size: 9px; line-height: 1.7; }
+.thanks-list > * > strong { color: var(--orange); font-size: 8px; text-align: right; }
+.thanks-contributors { background: var(--paper); }
+.thanks-note { max-width: 850px; margin: 28px 0 0 auto; color: #6e7f85; font-size: 9px; line-height: 1.8; }
 
 footer { display: grid; min-height: 190px; padding: 50px max(32px, calc((100vw - 1240px) / 2)); grid-template-columns: 1fr auto auto; align-items: center; background: var(--navy); color: white; gap: 70px; }
 .footer-brand { display: flex; align-items: center; gap: 13px; }
@@ -557,6 +597,9 @@ footer { display: grid; min-height: 190px; padding: 50px max(32px, calc((100vw -
   .subject-row { grid-template-columns: .72fr 1.2fr 1fr 1fr 1.45fr; gap: 10px; }
   .formula-card, .resources-inner { grid-template-columns: 1fr; gap: 42px; }
   .resources-inner { gap: 58px; }
+  .community-inner { grid-template-columns: 1fr 340px; gap: 55px; }
+  .thanks-heading { grid-template-columns: 1fr; gap: 18px; }
+  .thanks-heading .section-kicker { grid-column: auto; margin-bottom: 0; }
   .page-hero { grid-template-columns: 1fr; gap: 48px; }
   .page-hero-note { max-width: 620px; }
   .year-card-grid { grid-template-columns: repeat(2, 1fr); }
@@ -607,7 +650,7 @@ footer { display: grid; min-height: 190px; padding: 50px max(32px, calc((100vw -
   .subject-table { overflow-x: auto; }
   .subject-row { width: 760px; }
   .subject-tips, .reexam-grid, .data-summary, .life-grid, .outcome-kpis { grid-template-columns: 1fr; }
-  .data-section, .resources-section, .life-section { padding: 80px 18px; }
+  .data-section, .resources-section, .life-section, .community-section, .thanks-section { padding: 80px 18px; }
   .chart-card { overflow-x: auto; padding: 24px 18px 20px; }
   .chart-head { min-width: 620px; }
   .bar-chart { min-width: 620px; }
@@ -618,6 +661,11 @@ footer { display: grid; min-height: 190px; padding: 50px max(32px, calc((100vw -
   .formula-segment strong { font-size: 16px; }
   .experience-list > a { grid-template-columns: 40px 1fr auto; }
   .coming-soon { grid-template-columns: 1fr; gap: 8px; }
+  .community-inner { grid-template-columns: 1fr; gap: 44px; }
+  .community-copy h2 { font-size: 40px; }
+  .community-card { padding: 25px 22px; }
+  .thanks-list > * { padding: 24px 7px; grid-template-columns: 1fr; gap: 9px; }
+  .thanks-list > * > strong { text-align: left; }
   .resource-links > * > span { grid-template-columns: 45px 1fr; }
   .resource-links > * > strong { display: none; }
   .page-hero { min-height: 540px; padding: 125px 18px 62px; }

@@ -1,12 +1,25 @@
 import Link from "next/link";
 
+export const qqGroupUrl = "https://qm.qq.com/cgi-bin/qm/qr?k=r9u8RmL8tXw4jCF32Pz1tOd83sFteVW1&jump_from=webapi&authKey=Itu6in4pdGnalupvoOhfjHS5fzZsjCw0hgTiBdJh8oSiq1vSH3eiDwAenGR0UsCl";
+
 const primaryNav = [
   { label: "首页", href: "/" },
   { label: "报考指南", href: "/#overview" },
   { label: "历年数据", href: "/data" },
   { label: "经验归档", href: "/experiences" },
-  { label: "来源说明", href: "/sources" },
+  { label: "交流与致谢", href: "/#community" },
 ];
+
+export function QQGroupLink({ className, children }: { className: string; children: React.ReactNode }) {
+  return (
+    <a className={className} href={qqGroupUrl} target="_blank" rel="noopener noreferrer">
+      {/* QQ provides this official group-link badge. */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src="https://pub.idqqimg.com/wpa/images/group.png" alt="" width="16" height="16" />
+      {children}
+    </a>
+  );
+}
 
 export function SiteHeader() {
   return (
@@ -23,15 +36,16 @@ export function SiteHeader() {
           <Link href={item.href} key={item.href}>{item.label}</Link>
         ))}
       </nav>
-      <Link className="header-cta" href="/data/2026">
-        2026 年度报告 <span aria-hidden="true">↗</span>
-      </Link>
+      <QQGroupLink className="header-cta header-group-cta">
+        一键入群 <span aria-hidden="true">↗</span>
+      </QQGroupLink>
       <details className="mobile-menu">
         <summary aria-label="打开导航菜单"><span />菜单</summary>
         <nav aria-label="移动端导航">
           {primaryNav.map((item) => (
             <Link href={item.href} key={item.href}>{item.label}<span>↗</span></Link>
           ))}
+          <QQGroupLink className="mobile-group-link">一键加入 2027 交流群<span>↗</span></QQGroupLink>
         </nav>
       </details>
     </header>
@@ -49,6 +63,7 @@ export function SiteFooter() {
         <Link href="/data">历年数据</Link>
         <Link href="/experiences">经验归档</Link>
         <Link href="/sources">来源说明</Link>
+        <a href={qqGroupUrl} target="_blank" rel="noopener noreferrer">2027 交流群</a>
       </nav>
       <div className="footer-meta"><p>公益维护 · 非盈利 · 非官方网站</p><p>内容仅供参考，以官方通知为准</p></div>
     </footer>

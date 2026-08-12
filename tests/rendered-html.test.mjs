@@ -36,6 +36,16 @@ test("server-renders the data archive", async () => {
   assert.match(html, /48 条常规录取记录/);
 });
 
+test("server-renders the complete 2026 annual report", async () => {
+  const response = await render("/data/2026");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /2026 年.*考研数据报告/s);
+  assert.match(html, /四个报考专业/);
+  assert.match(html, /分数段复试与录取/);
+  assert.match(html, /单科、初试、复试与总成绩/);
+});
+
 test("server-renders experience and source archives", async () => {
   const [experienceResponse, sourceResponse] = await Promise.all([
     render("/experiences"),

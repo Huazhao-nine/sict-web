@@ -15,6 +15,8 @@ const years = [
     academicRange: "271–361",
     professionalRange: "323–395",
     note: "48 条常规录取记录，另含 1 名专项计划考生",
+    coverage: "完整报告",
+    href: "/data/2026",
     latest: true,
   },
   {
@@ -25,6 +27,8 @@ const years = [
     academicRange: "261–361",
     professionalRange: "262–409",
     note: "表内记录含非全日制与专项计划标注",
+    coverage: "基础档案",
+    href: "#comparison",
     latest: false,
   },
   {
@@ -35,6 +39,8 @@ const years = [
     academicRange: "283–369",
     professionalRange: "277–409",
     note: "表内记录含非全日制、调剂与专项计划标注",
+    coverage: "基础档案",
+    href: "#comparison",
     latest: false,
   },
 ];
@@ -68,15 +74,16 @@ export default function DataArchive() {
         </div>
         <div className="year-card-grid">
           {years.map((item) => (
-            <article className={item.latest ? "year-card latest" : "year-card"} key={item.year}>
-              <div className="year-card-title"><span>{item.latest ? "最新年度" : "历史归档"}</span><strong>{item.year}</strong></div>
+            <a href={item.href} className={item.latest ? "year-card latest" : "year-card"} key={item.year}>
+              <div className="year-card-title"><span>{item.latest ? "最新年度" : "历史归档"} · {item.coverage}</span><strong>{item.year}</strong></div>
               <div className="year-total"><span>录取记录</span><strong>{item.total}<small> 人</small></strong></div>
               <dl>
                 <div><dt>学硕</dt><dd>{item.academic}</dd></div>
                 <div><dt>专硕</dt><dd>{item.professional}</dd></div>
               </dl>
               <p>{item.note}</p>
-            </article>
+              <b className="year-card-link">{item.latest ? "打开年度报告 ↗" : "查看基础对照 ↓"}</b>
+            </a>
           ))}
         </div>
       </section>
@@ -118,4 +125,3 @@ export default function DataArchive() {
     </main>
   );
 }
-

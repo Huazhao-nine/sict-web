@@ -115,20 +115,17 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="institute-ledger" aria-label="沈阳计算概况数据">
-          <article><strong>1958</strong><span>始建年份</span></article>
-          <article><strong>3</strong><span>国家级科研创新平台</span></article>
-          <article><strong>50+</strong><span>国家级重大科研项目</span></article>
-          <article><strong>300+</strong><span>每年培养博硕研究生</span></article>
-        </div>
-
-        <div className="institute-reasons">
-          <div><span>WHY SICT</span><h3>为什么选择沈计所</h3></div>
-          <ul>
-            <li><b>平台扎实</b><small>国家级科研平台支撑</small></li>
-            <li><b>工程导向</b><small>课题与产业需求联系紧密</small></li>
-            <li><b>培养完整</b><small>硕士、博士与博士后链条</small></li>
-          </ul>
+        <div className="why-sict-section">
+          <div className="why-sict-title"><p className="section-kicker">WHY SICT</p><h2>为什么选择沈计所</h2></div>
+          <div className="why-sict-grid">
+            <article><span aria-hidden="true">🎓</span><div><h3>方向完整</h3><p>设有计算机科学与技术、软件工程硕士点，以及计算机应用技术博士点。</p></div></article>
+            <article><span aria-hidden="true">📉</span><div><h3>分数线相对友好</h3><p>2026 年学硕复试线 265、专硕复试线 273，最终仍按初复试综合成绩排序。</p></div></article>
+            <article><span aria-hidden="true">🏛️</span><div><h3>平台与项目</h3><p>拥有三个国家级平台，长期承担国家重大专项和重点研发任务。</p></div></article>
+            <article><span aria-hidden="true">💰</span><div><h3>免学费 + 高补助</h3><p>学生整理口径：研一补助 3.3 万+/年，已含学费返还；实际以当年通知为准。</p></div></article>
+            <article><span aria-hidden="true">❤️</span><div><h3>上岸背景多样</h3><p>经验归档中可见跨考、二战和不同本科背景案例，成绩与复试表现更重要。</p></div></article>
+            <article><span aria-hidden="true">🚀</span><div><h3>去向选择多元</h3><p>毕业去向覆盖科技企业、党政机关与继续深造，年度报告提供民间统计参考。</p></div></article>
+          </div>
+          <p className="why-sict-tip"><strong>⚠️ 理性看待：</strong>复试线相对友好不等于稳录取。2026 年学硕 30 人进入复试、拟录取 16 人；专硕 72 人进入复试、拟录取 33 人，复试准备同样重要。</p>
         </div>
 
         <p className="institute-note"><strong>口径说明：</strong>机构数据据官方简介整理；补助与学费来自学生材料，实际政策以入学当年通知为准。</p>

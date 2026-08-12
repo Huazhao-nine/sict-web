@@ -32,6 +32,13 @@ test("server-renders the finished SICT guide", async () => {
   assert.match(html, /认识沈计所/);
   assert.match(html, /1958/);
   assert.match(html, /为什么选择沈计所/);
+  assert.match(html, /方向完整/);
+  assert.match(html, /分数线相对友好/);
+  assert.match(html, /平台与项目/);
+  assert.match(html, /免学费 \+ 高补助/);
+  assert.match(html, /上岸背景多样/);
+  assert.match(html, /去向选择多元/);
+  assert.match(html, /理性看待/);
   assert.match(html, /对沈计所效忠/);
   assert.match(html, /状态仅保存在当前浏览器/);
   assert.match(html, /https:\/\/www\.sict\.ac\.cn\/show-26-1-1\.html/);

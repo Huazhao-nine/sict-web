@@ -24,6 +24,17 @@ test("server-renders the finished SICT guide", async () => {
   assert.match(html, /初试科目/);
   assert.match(html, /复试怎么考/);
   assert.match(html, /培养地点、住宿与补助/);
+  assert.match(html, /A\+/);
+  assert.match(html, /国科大计算机学科评估/);
+  assert.match(html, /3\.3万\+/);
+  assert.match(html, /研一补助\/年 · 北京/);
+  assert.match(html, /补助已含学费返还/);
+  assert.match(html, /从国家任务走来的/);
+  assert.match(html, /1958/);
+  assert.match(html, /为什么选择沈计所/);
+  assert.match(html, /对沈计所效忠/);
+  assert.match(html, /状态仅保存在当前浏览器/);
+  assert.match(html, /https:\/\/www\.sict\.ac\.cn\/show-26-1-1\.html/);
   assert.match(html, /2027 中科院沈计所考研群/);
   assert.match(html, /加入 QQ 群/);
   assert.match(html, /免责声明/);

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://huazhao-nine.github.io/sict-web";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://sict.cskaoyan.cn";
 const socialImage = `${siteUrl}/og.png`;
 const pagesBasePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 

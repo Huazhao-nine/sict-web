@@ -2,7 +2,7 @@
 
 > 中国科学院沈阳计算技术研究所报考信息整理站
 
-[在线访问](https://huazhao-nine.github.io/sict-web/) · [历年数据](https://huazhao-nine.github.io/sict-web/data/) · [经验归档](https://huazhao-nine.github.io/sict-web/experiences/) · [免责声明](https://huazhao-nine.github.io/sict-web/disclaimer/)
+[在线访问](https://sict.cskaoyan.cn/) · [历年数据](https://sict.cskaoyan.cn/data/) · [经验归档](https://sict.cskaoyan.cn/experiences/) · [免责声明](https://sict.cskaoyan.cn/disclaimer/)
 
 ![沈计指南网页预览](public/og.png)
 
@@ -31,7 +31,7 @@
 
 数据来自项目资料中的学生整理报告、录取统计表、报考指南以及公开招生信息。公开页面不提供 PDF、Word、Excel 等原始材料下载。
 
-除另有说明的第三方材料外，本站原创整理内容采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans) 许可；经验原文的权利仍归原作者所有。完整边界见网站[免责声明](https://huazhao-nine.github.io/sict-web/disclaimer/)。
+除另有说明的第三方材料外，本站原创整理内容采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans) 许可；经验原文的权利仍归原作者所有。完整边界见网站[免责声明](https://sict.cskaoyan.cn/disclaimer/)。
 
 ## 致谢
 

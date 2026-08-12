@@ -4,10 +4,12 @@ import { fileURLToPath } from "node:url";
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const outputDir = path.join(projectRoot, "dist", "client");
-const basePath = "/sict-web";
-const prefixedAssetsDir = path.join(outputDir, basePath.slice(1), "_next");
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const prefixedAssetsDir = basePath
+  ? path.join(outputDir, basePath.slice(1), "_next")
+  : path.join(outputDir, "_next");
 const prefixedCssDir = path.join(prefixedAssetsDir, "static", "css");
-const legacyCssNames = ["index.BSPyRy4Z.css"];
+const legacyCssNames = ["index.BSPyRy4Z.css", "index.BNF6P_Hz.css"];
 
 async function collectFiles(directory) {
   const entries = await readdir(directory, { withFileTypes: true });
@@ -19,7 +21,7 @@ async function collectFiles(directory) {
 }
 
 function pagesHref(href) {
-  if (!href.startsWith("/") || href.startsWith(`${basePath}/`)) return href;
+  if (!basePath || !href.startsWith("/") || href.startsWith(`${basePath}/`)) return href;
 
   const match = href.match(/^([^?#]*)(.*)$/);
   const pathname = match?.[1] ?? href;
@@ -51,12 +53,15 @@ const stableCssUrl = `${basePath}/_next/static/css/${stableCssName}?v=${generate
 
 await cp(generatedCssPath, stableCssPath);
 for (const legacyCssName of legacyCssNames) {
+  if (legacyCssName === generatedCssName) continue;
   await cp(generatedCssPath, path.join(prefixedCssDir, legacyCssName));
 }
 
-// assetPrefix controls public URLs, while GitHub Pages mounts the artifact
-// itself at /sict-web. Keep a copy at the artifact root to match that mount.
-await cp(prefixedAssetsDir, path.join(outputDir, "_next"), { recursive: true });
+// A project-site base path puts assets below that prefix. A custom domain is
+// mounted at the artifact root and needs no second copy.
+if (basePath) {
+  await cp(prefixedAssetsDir, path.join(outputDir, "_next"), { recursive: true });
+}
 
 for (const htmlFile of htmlFiles) {
   const relative = path.relative(outputDir, htmlFile);
@@ -80,4 +85,4 @@ for (const deploymentFile of deploymentFiles) {
 }
 
 await writeFile(path.join(outputDir, ".nojekyll"), "");
-console.log(`Prepared ${htmlFiles.length} HTML files with stable CSS for GitHub Pages at ${basePath}.`);
+console.log(`Prepared ${htmlFiles.length} HTML files with stable CSS for GitHub Pages at ${basePath || "/"}.`);

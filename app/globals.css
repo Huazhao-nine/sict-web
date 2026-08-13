@@ -334,8 +334,11 @@ button, input, textarea, select { font: inherit; }
 .pledge-action button { width: 100%; min-height: 58px; border: 1px solid var(--sand); background: var(--sand); color: var(--ink); cursor: pointer; font-size: 17px; font-weight: 900; transition: transform .2s ease, background .2s ease; }
 .pledge-action button:hover { background: #e1ccaa; transform: translateY(-2px); }
 .pledge-action button[aria-pressed="true"] { border-color: #92d0a8; background: #92d0a8; }
-.pledge-action p { margin: 16px 0 4px; color: white; font-size: 12px; font-weight: 750; }
-.pledge-action small { color: rgba(255,255,255,.58); font-size: 10px; }
+.pledge-action button:disabled { cursor: default; opacity: .88; transform: none; }
+.pledge-action p { margin: 16px 0 5px; color: white; font-size: 13px; font-weight: 750; line-height: 1.6; }
+.pledge-action p[data-error="true"] { color: #ffd4cc; }
+.pledge-action small { color: rgba(255,255,255,.66); font-size: 11px; line-height: 1.6; }
+.pledge-counter strong { color: var(--sand); font-size: 14px; }
 
 footer { display: grid; min-height: 190px; padding: 50px max(32px, calc((100vw - 1240px) / 2)); grid-template-columns: 1fr auto auto; align-items: center; background: var(--navy); color: white; gap: 70px; }
 .footer-brand { display: flex; align-items: center; gap: 13px; }

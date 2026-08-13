@@ -34,7 +34,7 @@ test("server-renders the finished SICT guide", async () => {
   assert.match(html, /查看数据口径/);
   assert.doesNotMatch(html, /ABOUT · SICT|认识沈计所|WHY SICT|为什么选择沈计所|理性看待/);
   assert.match(html, /对沈计所效忠/);
-  assert.match(html, /状态仅保存在当前浏览器/);
+  assert.match(html, /正在读取全站计数/);
   assert.match(html, /2027 中科院沈计所考研群/);
   assert.match(html, /加入 QQ 群/);
   assert.match(html, /免责声明/);

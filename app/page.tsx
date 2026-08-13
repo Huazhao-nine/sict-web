@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "./components/static-link";
 import { PledgeButton } from "./components/pledge-button";
 import { QQGroupLink, SiteFooter, SiteHeader } from "./components/site-shell";
 

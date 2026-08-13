@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "../../components/static-link";
 import { SiteFooter, SiteHeader } from "../../components/site-shell";
 import { ScoreBandReport, ScoreStatistics } from "./report-view";
 

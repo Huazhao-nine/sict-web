@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "./static-link";
 
 export const qqGroupUrl = "https://qm.qq.com/cgi-bin/qm/qr?k=r9u8RmL8tXw4jCF32Pz1tOd83sFteVW1&jump_from=webapi&authKey=Itu6in4pdGnalupvoOhfjHS5fzZsjCw0hgTiBdJh8oSiq1vSH3eiDwAenGR0UsCl";
 export const githubRepoUrl = "https://github.com/Huazhao-nine/sict-web";

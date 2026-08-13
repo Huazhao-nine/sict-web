@@ -382,8 +382,11 @@ export default function Home() {
             <a href="https://iie.cskaoyan.cn" target="_blank" rel="noopener noreferrer">
               <span>02 / BROTHER SITE</span><div><h3>信工所考研信息站</h3><p>参考其招生数据表达、文章阅读结构和信息分层方式。</p></div><strong>访问网站 ↗</strong>
             </a>
+            <a href="https://ucas-bgi.cskaoyan.cn/" target="_blank" rel="noopener noreferrer">
+              <span>03 / BROTHER SITE</span><div><h3>国科大人工智能学院华大联培</h3><p>整理华大联培项目的招生、培养与报考信息，为不同培养单位的考生补充选择参考。</p></div><strong>访问网站 ↗</strong>
+            </a>
             <div className="thanks-contributors">
-              <span>03 / CONTRIBUTORS</span><div><h3>历届考生与资料整理者</h3><p>感谢每一位记录初试方法、复试经历、回忆题目，以及参与录取数据整理和勘误的同学。</p></div><strong>薪火相传</strong>
+              <span>04 / CONTRIBUTORS</span><div><h3>历届考生与资料整理者</h3><p>感谢每一位记录初试方法、复试经历、回忆题目，以及参与录取数据整理和勘误的同学。</p></div><strong>薪火相传</strong>
             </div>
           </div>
           <p className="thanks-note">本站仅学习兄弟站的信息组织经验，沈计所的数据与文章均来自本项目资料并独立整理。一个人的经验有限，一群人的分享可以让后来者少走弯路。</p>

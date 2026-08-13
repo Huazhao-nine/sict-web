@@ -72,6 +72,9 @@ export default function Sources() {
             <a href="https://iscas.cskaoyan.cn/" target="_blank" rel="noopener noreferrer">
               <span>ISCAS</span><div><strong>中科院软件所报考指南</strong><small>iscas.cskaoyan.cn</small></div><b>访问 ↗</b>
             </a>
+            <a href="https://ucas-bgi.cskaoyan.cn/" target="_blank" rel="noopener noreferrer">
+              <span>UCAS-BGI</span><div><strong>国科大人工智能学院华大联培</strong><small>ucas-bgi.cskaoyan.cn</small></div><b>访问 ↗</b>
+            </a>
           </div>
         </div>
       </section>

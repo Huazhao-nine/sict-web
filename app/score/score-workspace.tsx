@@ -39,6 +39,7 @@ type Submission = {
   proofContentType?: string;
   status: string;
   statusLabel: string;
+  reviewNote?: string;
   submittedAt?: string;
   updatedAt?: string;
 };
@@ -453,6 +454,7 @@ export function ScoreWorkspace({
                   <span>2027 已提交</span>
                   <strong>{submission.totalScore} 分 · {submission.statusLabel}</strong>
                   <p>{scoreLabel(submissionForm(submission))}</p>
+                  {submission.status === "REJECTED" && submission.reviewNote ? <p><strong>核验反馈：</strong>{submission.reviewNote}</p> : null}
                 </div>
               ) : null}
 
@@ -616,6 +618,7 @@ export function ScoreWorkspace({
               <p className="score-panel-kicker">SUBMITTED · 2027</p>
               <h3>{submitMessage || "登分提交成功"}</h3>
               <p className="score-panel-lead">你的记录已安全保存，目前状态为<strong>“{submission.statusLabel}”</strong>。核验通过后才会进入匿名统计。</p>
+              {submission.status === "REJECTED" && submission.reviewNote ? <p className="score-inline-notice"><strong>核验反馈：</strong>{submission.reviewNote}</p> : null}
               <div className="score-existing-record is-success">
                 <span>我的初试成绩</span>
                 <strong>{submission.totalScore} 分</strong>

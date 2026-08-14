@@ -70,6 +70,21 @@ type ScoreStats = {
   count340?: number;
 };
 
+type PublicLeaderboardRow = {
+  rank: number;
+  politics: number;
+  english: number;
+  mathematics: number;
+  subjectScore: number;
+  totalScore: number;
+};
+
+type PublicLeaderboard = {
+  examYear: number;
+  approvedCount: number;
+  list: PublicLeaderboardRow[];
+};
+
 const initialForm: ScoreForm = {
   name: "",
   school: "",
@@ -182,6 +197,7 @@ export function ScoreWorkspace({
   const [consented, setConsented] = useState(false);
   const [submission, setSubmission] = useState<Submission | null>(null);
   const [stats, setStats] = useState<ScoreStats | null>(null);
+  const [leaderboard, setLeaderboard] = useState<PublicLeaderboard | null>(null);
   const [recordLoading, setRecordLoading] = useState(false);
   const [submitState, setSubmitState] = useState<"idle" | "sending" | "error">("idle");
   const [submitMessage, setSubmitMessage] = useState("");
@@ -222,7 +238,17 @@ export function ScoreWorkspace({
         // 统计卡片失败不阻断登分。
       }
     };
+    const loadLeaderboard = async () => {
+      try {
+        const response = await fetch(`${apiBaseUrl}/score/leaderboard?year=2027`, { signal: controller.signal });
+        const result = await readResult(response);
+        if (result?.code === 200 && result?.data) setLeaderboard(result.data as PublicLeaderboard);
+      } catch {
+        // 榜单失败不阻断登分。
+      }
+    };
     void loadStats();
+    void loadLeaderboard();
     return () => controller.abort();
   }, [apiBaseUrl]);
 
@@ -670,10 +696,54 @@ export function ScoreWorkspace({
         <ol className="score-stat-process">
           <li><span>01</span><p><strong>实名登记</strong><small>信息加密保存</small></p></li>
           <li><span>02</span><p><strong>证明核验</strong><small>排除重复异常</small></p></li>
-          <li><span>03</span><p><strong>匿名统计</strong><small>不公开单条记录</small></p></li>
+          <li><span>03</span><p><strong>匿名榜单</strong><small>只公开分数与排名</small></p></li>
         </ol>
       </aside>
+
+      <PublicLeaderboardTable leaderboard={leaderboard} />
     </div>
+  );
+}
+
+function PublicLeaderboardTable({ leaderboard }: { leaderboard: PublicLeaderboard | null }) {
+  const rows = leaderboard?.list ?? [];
+  return (
+    <section className="score-public-leaderboard" aria-labelledby="public-leaderboard-title">
+      <header>
+        <div>
+          <p className="score-panel-kicker">PUBLIC · VERIFIED SCORES</p>
+          <h3 id="public-leaderboard-title">2027 已核验成绩榜</h3>
+          <p>仅展示各科分数、总分和当前排名，不公开任何身份信息。</p>
+        </div>
+        <b>{leaderboard?.approvedCount ?? 0} 份已核验样本</b>
+      </header>
+
+      {rows.length ? (
+        <div className="score-leaderboard-table-wrap">
+          <table className="score-leaderboard-table">
+            <thead>
+              <tr><th>排名</th><th>政治</th><th>英语</th><th>数学</th><th>408</th><th>总分</th></tr>
+            </thead>
+            <tbody>
+              {rows.map((row, index) => (
+                <tr key={`${row.rank}-${row.totalScore}-${row.politics}-${row.english}-${row.mathematics}-${row.subjectScore}-${index}`}>
+                  <td><strong>#{row.rank}</strong></td>
+                  <td>{row.politics}</td>
+                  <td>{row.english}</td>
+                  <td>{row.mathematics}</td>
+                  <td>{row.subjectScore}</td>
+                  <td><b>{row.totalScore}</b></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ) : (
+        <div className="score-leaderboard-empty"><strong>等待首批成绩完成核验</strong><p>管理员核验通过后，成绩会自动进入这里。</p></div>
+      )}
+
+      <footer>排名按总分从高到低计算，同分并列；榜单仅代表本站当前自愿提交并已核验的样本。</footer>
+    </section>
   );
 }
 

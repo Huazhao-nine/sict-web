@@ -178,6 +178,9 @@ test("server-renders the real score registration entry", async () => {
   assert.match(html, /成绩证明/);
   assert.match(html, /隐私加密/);
   assert.match(html, /提交你的 2027 初试成绩/);
+  assert.match(html, /2027 已核验成绩榜/);
+  assert.match(html, /仅展示各科分数、总分和当前排名/);
+  assert.match(html, /政治.*英语.*数学.*408.*总分/s);
   assert.doesNotMatch(html, /本地交互预览|不会真正提交|演示模式/);
   assert.match(html, /非官方说明/);
   assert.doesNotMatch(html, /\/qq\/login|\/user\/profile/);

@@ -6,16 +6,16 @@ const scoreSocialImage = `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://sict.cs
 
 export const metadata: Metadata = {
   title: "2027 沈计考研登分",
-  description: "沈阳计算所 2027 考研民间登分系统，登录后提交初试成绩与成绩证明，核验后仅发布匿名样本统计。",
+  description: "沈阳计算所 2027 考研民间登分系统，登录后提交初试成绩与成绩证明，核验后匿名公开各科分数、总分与排名。",
   openGraph: {
     title: "沈计考研登分｜2027 成绩登记与匿名统计",
-    description: "填写考生信息、初试成绩并上传成绩证明；核验后仅发布匿名样本统计。",
+    description: "填写考生信息、初试成绩并上传成绩证明；核验后匿名公开各科分数、总分与排名。",
     images: [{ url: scoreSocialImage, width: 1200, height: 630, alt: "沈计考研登分：2027 成绩登记与匿名统计" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "沈计考研登分｜2027 成绩登记与匿名统计",
-    description: "填写考生信息、初试成绩并上传成绩证明；核验后仅发布匿名样本统计。",
+    description: "填写考生信息、初试成绩并上传成绩证明；核验后匿名公开各科分数、总分与排名。",
     images: [scoreSocialImage],
   },
 };
@@ -36,7 +36,7 @@ const principles = [
   {
     index: "03",
     title: "证明核验",
-    text: "每份记录需附研招网成绩截图或 PDF，核验通过后才进入匿名统计。",
+    text: "每份记录需附研招网成绩截图或 PDF，核验通过后只公开各科分数、总分与排名。",
   },
 ];
 
@@ -58,7 +58,7 @@ export default function ScorePage() {
           <h1>考研登分</h1>
           <p>
             面向报考沈阳计算所的 2027 考生。登录后填写考生信息、四科成绩并上传成绩证明，
-            <strong>核验后只发布无法定位个人的汇总数据</strong>。
+            <strong>核验后只公开各科分数、总分与排名</strong>。
           </p>
           <div className="score-hero-badges" aria-label="登分系统特点">
             <span>QQ 身份</span>
@@ -126,7 +126,7 @@ export default function ScorePage() {
             </article>
             <article>
               <span>02</span>
-              <div><h3>只为核验收集必要信息</h3><p>姓名、学校、准考证号与成绩证明仅用于核验和去重，不会出现在公开页面或公开数据中。</p></div>
+              <div><h3>只为核验收集必要信息</h3><p>姓名、学校、准考证号与成绩证明仅用于核验和去重；公开榜单只包含各科分数、总分与排名。</p></div>
             </article>
             <article>
               <span>03</span>

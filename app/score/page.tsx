@@ -30,8 +30,8 @@ const principles = [
   },
   {
     index: "02",
-    title: "隐私加密",
-    text: "姓名、学校、准考证号与联系邮箱加密保存，公开页面不展示个人记录。",
+    title: "身份不公开",
+    text: "姓名、学校、准考证号与联系邮箱以明文保存，仅管理后台核验时可见。",
   },
   {
     index: "03",
@@ -63,7 +63,7 @@ export default function ScorePage() {
           <div className="score-hero-badges" aria-label="登分系统特点">
             <span>QQ 身份</span>
             <span>成绩证明</span>
-            <span>隐私加密</span>
+            <span>仅后台可见</span>
           </div>
         </div>
 
@@ -126,7 +126,7 @@ export default function ScorePage() {
             </article>
             <article>
               <span>02</span>
-              <div><h3>只为核验收集必要信息</h3><p>姓名、学校、准考证号与成绩证明仅用于核验和去重；公开榜单只包含各科分数、总分与排名。</p></div>
+              <div><h3>只为核验收集必要信息</h3><p>姓名、学校、准考证号与联系邮箱以明文保存，仅用于后台核验和去重；公开榜单只包含各科分数、总分与排名。</p></div>
             </article>
             <article>
               <span>03</span>

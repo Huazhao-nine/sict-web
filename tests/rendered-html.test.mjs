@@ -176,7 +176,8 @@ test("server-renders the real score registration entry", async () => {
   assert.match(html, /2027 登分开放/);
   assert.match(html, /考生信息/);
   assert.match(html, /成绩证明/);
-  assert.match(html, /隐私加密/);
+  assert.match(html, /身份不公开/);
+  assert.match(html, /以明文保存/);
   assert.match(html, /提交你的 2027 初试成绩/);
   assert.match(html, /2027 已核验成绩榜/);
   assert.match(html, /学硕与专硕分别排名/);

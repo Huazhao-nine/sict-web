@@ -550,7 +550,7 @@ export function ScoreWorkspace({
               <h3>填写考生信息</h3>
               <p className="score-panel-lead">这些信息用于核对重复记录和成绩证明，只对维护者可见，不进入公开统计。</p>
 
-              <div className="score-private-note"><strong>隐私字段已加密保存</strong><span>姓名、学校、准考证号与联系邮箱不会明文进入公开数据。</span></div>
+              <div className="score-private-note"><strong>身份字段以明文保存</strong><span>姓名、学校、准考证号与联系邮箱仅供管理后台核验，不会进入公开榜单。</span></div>
               <div className="score-profile-grid">
                 <TextField label="姓名" value={form.name} onChange={(value) => updateField("name", value)} placeholder="与成绩单一致" autoComplete="name" />
                 <TextField label="本科院校" value={form.school} onChange={(value) => updateField("school", value)} placeholder="填写学校全称" />
@@ -618,7 +618,7 @@ export function ScoreWorkspace({
 
               <label className="score-consent">
                 <input checked={consented} onChange={(event) => setConsented(event.target.checked)} type="checkbox" />
-                <span>我确认以上内容真实，并同意维护者仅为重复检查、成绩核验和匿名统计处理这些信息。</span>
+                <span>我确认以上内容真实，并知悉身份信息将以明文保存，仅供重复检查、成绩核验和匿名统计使用。</span>
               </label>
 
               <div className="score-form-actions">
@@ -703,7 +703,7 @@ export function ScoreWorkspace({
           <p>核验通过不足 {stats?.minimumSample ?? 5} 份时不展示成绩分布；所有数字都只是本站自愿样本。</p>
         </div>
         <ol className="score-stat-process">
-          <li><span>01</span><p><strong>实名登记</strong><small>信息加密保存</small></p></li>
+          <li><span>01</span><p><strong>实名登记</strong><small>明文，仅后台可见</small></p></li>
           <li><span>02</span><p><strong>证明核验</strong><small>排除重复异常</small></p></li>
           <li><span>03</span><p><strong>匿名榜单</strong><small>只公开分数与排名</small></p></li>
         </ol>

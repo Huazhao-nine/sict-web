@@ -22,6 +22,20 @@ type ScoreForm = {
   subjectScore: string;
 };
 
+type ScoreRankItem = {
+  score: number;
+  rank: number;
+};
+
+type ScoreRanking = {
+  sampleSize: number;
+  total: ScoreRankItem;
+  politics: ScoreRankItem;
+  english: ScoreRankItem;
+  mathematics: ScoreRankItem;
+  subjectScore: ScoreRankItem;
+};
+
 type Submission = {
   examYear: number;
   name: string;
@@ -40,6 +54,7 @@ type Submission = {
   status: string;
   statusLabel: string;
   reviewNote?: string;
+  ranking?: ScoreRanking;
   submittedAt?: string;
   updatedAt?: string;
 };
@@ -457,6 +472,7 @@ export function ScoreWorkspace({
                   {submission.status === "REJECTED" && submission.reviewNote ? <p><strong>核验反馈：</strong>{submission.reviewNote}</p> : null}
                 </div>
               ) : null}
+              {submission?.status === "APPROVED" && submission.ranking ? <ScoreRankingTable ranking={submission.ranking} /> : null}
 
               {authUser ? (
                 <button className="score-primary-action" disabled={recordLoading} onClick={startEntry} type="button">
@@ -658,6 +674,38 @@ export function ScoreWorkspace({
         </ol>
       </aside>
     </div>
+  );
+}
+
+function ScoreRankingTable({ ranking }: { ranking: ScoreRanking }) {
+  const subjects = [
+    { label: "政治", value: ranking.politics },
+    { label: "英语", value: ranking.english },
+    { label: "数学", value: ranking.mathematics },
+    { label: "408", value: ranking.subjectScore },
+  ];
+  return (
+    <section className="score-ranking-card" aria-label="我的已核验样本排名">
+      <header>
+        <div><span>VERIFIED RANKING</span><strong>我的已核验样本排名</strong></div>
+        <b>{ranking.sampleSize} 份样本</b>
+      </header>
+      <div className="score-ranking-total">
+        <span>总分</span>
+        <strong>{ranking.total.score}</strong>
+        <p>第 <b>{ranking.total.rank}</b> / {ranking.sampleSize} 名</p>
+      </div>
+      <div className="score-ranking-subjects">
+        {subjects.map((item) => (
+          <article key={item.label}>
+            <span>{item.label}</span>
+            <strong>{item.value.score}</strong>
+            <p>第 <b>{item.value.rank}</b> / {ranking.sampleSize} 名</p>
+          </article>
+        ))}
+      </div>
+      <p className="score-ranking-note">排名仅基于本站当前已核验样本，同分并列；新增或修正样本后名次会随之变化。</p>
+    </section>
   );
 }
 

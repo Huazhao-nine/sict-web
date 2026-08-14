@@ -228,7 +228,7 @@ export function ScoreWorkspace({
       setStep("callback");
       if (!ticket || !stateMatches || params.has("error")) {
         setCallbackState("error");
-        setCallbackMessage("登录票据缺失或安全校验失败，请重新发起 QQ 登录。");
+        setCallbackMessage("本次登录信息已失效，请返回后重新登录。");
         return;
       }
 
@@ -243,7 +243,7 @@ export function ScoreWorkspace({
         const token = result?.data?.token as string | undefined;
         const user = result?.data?.user as AuthUser | undefined;
         if (!response.ok || result?.code !== 200 || !token || !user?.nickname) {
-          throw new Error(result?.msg || "服务器未能建立沈计登录状态");
+          throw new Error("登录未完成，请重新尝试。");
         }
 
         window.localStorage.setItem(authTokenKey, token);
@@ -435,17 +435,17 @@ export function ScoreWorkspace({
         <div className="score-panel">
           {step === "login" ? (
             <div>
-              <p className="score-panel-kicker">STEP 01 · SIGN IN</p>
+              <p className="score-panel-kicker">STEP 01 · QQ 登录</p>
               <h3>登录后登记你的真实成绩</h3>
-              <p className="score-panel-lead">QQ 仅用于识别和维护你自己的记录。这里的登录与 FlowerInFire 博客账号完全分开。</p>
+              <p className="score-panel-lead">QQ 仅用于确认身份和维护你自己的登分记录，登录后可以随时查看或更新。</p>
 
               <div className={`score-separation-card${authUser ? " is-authenticated" : ""}`}>
                 <span className="score-identity-mark">{authUser ? "QQ" : "沈"}</span>
                 <div>
                   <strong>{authUser?.nickname ?? "尚未登录沈计登分"}</strong>
-                  <small>{authUser ? "身份已确认，可以填写或更新登分记录" : "授权后只建立沈计专用会话"}</small>
+                  <small>{authUser ? "身份已确认，可以填写或更新登分记录" : "登录后即可开始填写登分"}</small>
                 </div>
-                <b>{authUser ? "VERIFIED" : "SICT ONLY"}</b>
+                <b>{authUser ? "身份已确认" : "安全登录"}</b>
               </div>
 
               {submission ? (
@@ -473,14 +473,14 @@ export function ScoreWorkspace({
 
           {step === "callback" ? (
             <div>
-              <p className="score-panel-kicker">QQ OAUTH · CALLBACK</p>
-              <h3>{callbackState === "loading" ? "正在建立沈计会话" : callbackState === "ready" ? "QQ 登录成功" : "未取得有效授权结果"}</h3>
+              <p className="score-panel-kicker">QQ 登录 · 身份确认</p>
+              <h3>{callbackState === "loading" ? "正在确认登录" : callbackState === "ready" ? "QQ 登录成功" : "登录未完成"}</h3>
               <p className="score-panel-lead">{callbackMessage}</p>
               <div className={`score-callback-status is-${callbackState}`}>
                 <span>{callbackState === "loading" ? "…" : callbackState === "ready" ? "✓" : "!"}</span>
                 <div>
-                  <strong>{callbackState === "loading" ? "正在兑换一次性票据" : callbackState === "ready" ? "身份确认完成" : "授权返回未完成"}</strong>
-                  <small>一次性票据不会写入博客登录状态</small>
+                  <strong>{callbackState === "loading" ? "正在确认授权结果" : callbackState === "ready" ? "身份确认完成" : "请重新登录"}</strong>
+                  <small>{callbackState === "error" ? "返回登录页后再次尝试即可" : "确认完成后即可继续填写登分"}</small>
                 </div>
               </div>
               {callbackState === "ready" ? (

@@ -28,6 +28,7 @@ type ScoreRankItem = {
 };
 
 type ScoreRanking = {
+  degreeType: ScoreForm["degreeType"];
   sampleSize: number;
   total: ScoreRankItem;
   politics: ScoreRankItem;
@@ -79,10 +80,18 @@ type PublicLeaderboardRow = {
   totalScore: number;
 };
 
+type PublicLeaderboardGroup = {
+  degreeType: ScoreForm["degreeType"];
+  label: string;
+  approvedCount: number;
+  list: PublicLeaderboardRow[];
+};
+
 type PublicLeaderboard = {
   examYear: number;
   approvedCount: number;
-  list: PublicLeaderboardRow[];
+  academic: PublicLeaderboardGroup;
+  professional: PublicLeaderboardGroup;
 };
 
 const initialForm: ScoreForm = {
@@ -706,19 +715,49 @@ export function ScoreWorkspace({
 }
 
 function PublicLeaderboardTable({ leaderboard }: { leaderboard: PublicLeaderboard | null }) {
-  const rows = leaderboard?.list ?? [];
+  const [activeDegreeType, setActiveDegreeType] = useState<ScoreForm["degreeType"]>("academic");
+  const emptyGroups: Record<ScoreForm["degreeType"], PublicLeaderboardGroup> = {
+    academic: { degreeType: "academic", label: "学术型硕士", approvedCount: 0, list: [] },
+    professional: { degreeType: "professional", label: "专业型硕士", approvedCount: 0, list: [] },
+  };
+  const groups = {
+    academic: leaderboard?.academic ?? emptyGroups.academic,
+    professional: leaderboard?.professional ?? emptyGroups.professional,
+  };
+  const activeGroup = groups[activeDegreeType];
+  const rows = activeGroup.list;
   return (
     <section className="score-public-leaderboard" aria-labelledby="public-leaderboard-title">
       <header>
         <div>
           <p className="score-panel-kicker">PUBLIC · VERIFIED SCORES</p>
           <h3 id="public-leaderboard-title">2027 已核验成绩榜</h3>
-          <p>仅展示各科分数、总分和当前排名，不公开任何身份信息。</p>
+          <p>学硕与专硕分别排名，仅展示各科分数、总分和当前名次，不公开任何身份信息。</p>
         </div>
         <b>{leaderboard?.approvedCount ?? 0} 份已核验样本</b>
       </header>
 
-      <div className="score-leaderboard-table-wrap">
+      <div className="score-leaderboard-tabs" role="tablist" aria-label="选择报考类型榜单">
+        {(Object.keys(groups) as Array<ScoreForm["degreeType"]>).map((degreeType) => {
+          const group = groups[degreeType];
+          const selected = degreeType === activeDegreeType;
+          return (
+            <button
+              aria-controls="score-leaderboard-panel"
+              aria-selected={selected}
+              className={selected ? "is-active" : ""}
+              key={degreeType}
+              onClick={() => setActiveDegreeType(degreeType)}
+              role="tab"
+              type="button"
+            >
+              <span>{`${group.label}榜`}</span><b>{group.approvedCount} 份</b>
+            </button>
+          );
+        })}
+      </div>
+
+      <div className="score-leaderboard-table-wrap" id="score-leaderboard-panel" role="tabpanel">
         <table className="score-leaderboard-table">
           <thead>
             <tr><th>排名</th><th>政治</th><th>英语</th><th>数学</th><th>408</th><th>总分</th></tr>
@@ -736,18 +775,19 @@ function PublicLeaderboardTable({ leaderboard }: { leaderboard: PublicLeaderboar
                 </tr>
               ))
             ) : (
-              <tr className="score-leaderboard-empty"><td colSpan={6}><strong>等待首批成绩完成核验</strong><p>管理员核验通过后，成绩会自动进入这里。</p></td></tr>
+              <tr className="score-leaderboard-empty"><td colSpan={6}><strong>{activeGroup.label}暂无已核验成绩</strong><p>管理员核验通过后，成绩会自动进入这里。</p></td></tr>
             )}
           </tbody>
         </table>
       </div>
 
-      <footer>排名按总分从高到低计算，同分并列；榜单仅代表本站当前自愿提交并已核验的样本。</footer>
+      <footer>学硕、专硕独立排名，均按总分从高到低计算，同分并列；榜单仅代表本站当前自愿提交并已核验的样本。</footer>
     </section>
   );
 }
 
 function ScoreRankingTable({ ranking }: { ranking: ScoreRanking }) {
+  const degreeLabel = ranking.degreeType === "academic" ? "学硕" : "专硕";
   const subjects = [
     { label: "政治", value: ranking.politics },
     { label: "英语", value: ranking.english },
@@ -757,8 +797,8 @@ function ScoreRankingTable({ ranking }: { ranking: ScoreRanking }) {
   return (
     <section className="score-ranking-card" aria-label="我的已核验样本排名">
       <header>
-        <div><span>VERIFIED RANKING</span><strong>我的已核验样本排名</strong></div>
-        <b>{ranking.sampleSize} 份样本</b>
+        <div><span>VERIFIED RANKING</span><strong>我的{degreeLabel}样本排名</strong></div>
+        <b>{degreeLabel} · {ranking.sampleSize} 份</b>
       </header>
       <div className="score-ranking-total">
         <span>总分</span>
@@ -774,7 +814,7 @@ function ScoreRankingTable({ ranking }: { ranking: ScoreRanking }) {
           </article>
         ))}
       </div>
-      <p className="score-ranking-note">排名仅基于本站当前已核验样本，同分并列；新增或修正样本后名次会随之变化。</p>
+      <p className="score-ranking-note">排名仅与同一报考类型的已核验样本比较，同分并列；新增或修正样本后名次会随之变化。</p>
     </section>
   );
 }

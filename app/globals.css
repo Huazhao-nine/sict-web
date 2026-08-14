@@ -919,6 +919,13 @@ footer { display: grid; min-height: 190px; padding: 50px max(32px, calc((100vw -
 .score-public-leaderboard > header h3 { margin: 0; color: var(--sand); font-family: var(--font-display); font-size: clamp(27px, 3vw, 40px); }
 .score-public-leaderboard > header p:not(.score-panel-kicker) { max-width: 620px; margin: 9px 0 0; color: rgba(255,255,255,.66); font-size: 12px; line-height: 1.7; }
 .score-public-leaderboard > header > b { padding: 9px 12px; border: 1px solid rgba(255,255,255,.22); color: white; font-size: 11px; white-space: nowrap; }
+.score-leaderboard-tabs { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--line); background: var(--paper-deep); }
+.score-leaderboard-tabs button { display: flex; min-height: 66px; padding: 0 28px; align-items: center; justify-content: space-between; border: 0; border-right: 1px solid var(--line); background: transparent; cursor: pointer; color: var(--ink-soft); }
+.score-leaderboard-tabs button:last-child { border-right: 0; }
+.score-leaderboard-tabs button:hover { background: rgba(255,255,255,.55); }
+.score-leaderboard-tabs button.is-active { background: var(--white); box-shadow: inset 0 -3px var(--orange); color: var(--ink); }
+.score-leaderboard-tabs span { font-size: 14px; font-weight: 850; }
+.score-leaderboard-tabs b { color: var(--orange-dark); font-family: Georgia, serif; font-size: 12px; font-weight: 500; }
 .score-leaderboard-table-wrap { overflow-x: auto; }
 .score-leaderboard-table { width: 100%; min-width: 650px; border-collapse: collapse; table-layout: fixed; }
 .score-leaderboard-table th { height: 48px; border-bottom: 1px solid var(--line); background: var(--paper-deep); color: var(--ink-soft); font-size: 10px; font-weight: 850; letter-spacing: .08em; text-align: center; }
@@ -1237,6 +1244,8 @@ footer { display: grid; min-height: 190px; padding: 50px max(32px, calc((100vw -
   .score-public-leaderboard { margin-top: 8px; }
   .score-public-leaderboard > header { min-height: 0; padding: 24px 18px; align-items: flex-start; flex-direction: column; gap: 16px; }
   .score-public-leaderboard > header h3 { font-size: 28px; }
+  .score-leaderboard-tabs button { min-height: 60px; padding: 0 15px; align-items: flex-start; justify-content: center; flex-direction: column; gap: 3px; }
+  .score-leaderboard-tabs span { font-size: 12px; }
   .score-stat-card { display: block; }
   .score-stat-primary { border-right: 0; }
   .score-stat-process p { flex-direction: column; gap: 2px; }

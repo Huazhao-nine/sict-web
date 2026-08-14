@@ -28,7 +28,11 @@ const principles = [
 ];
 
 export default function ScorePage() {
-  const qqAuthUrl = process.env.NEXT_PUBLIC_SICT_QQ_AUTH_URL?.trim() || null;
+  const qqClientId = process.env.NEXT_PUBLIC_SICT_QQ_CLIENT_ID?.trim();
+  const qqCallbackUrl = process.env.NEXT_PUBLIC_SICT_QQ_CALLBACK_URL?.trim()
+    || "https://flowerinfire.com/#/sict/auth/callback";
+  const apiBaseUrl = (process.env.NEXT_PUBLIC_SICT_API_BASE_URL
+    ?? "https://flowerinfire.com/api/sict").replace(/\/$/, "");
 
   return (
     <main className="score-page">
@@ -52,11 +56,11 @@ export default function ScorePage() {
 
         <aside className="score-launch-state" aria-label="登分开放状态">
           <span className="score-state-label">当前状态</span>
-          <strong>前端预览</strong>
-          <p>独立后端尚未接入，真实登录、验证码和提交暂不开放。</p>
+          <strong>生产联调</strong>
+          <p>QQ 登录采用沈计专用会话，授权回调与博客账号状态完全分离。</p>
           <dl>
-            <div><dt>数据上传</dt><dd>关闭</dd></div>
-            <div><dt>本地预览</dt><dd>可用</dd></div>
+            <div><dt>QQ 回调</dt><dd>已接入</dd></div>
+            <div><dt>交互预览</dt><dd>可用</dd></div>
           </dl>
         </aside>
       </section>
@@ -89,7 +93,11 @@ export default function ScorePage() {
           </p>
         </div>
 
-        <ScoreWorkspace qqAuthUrl={qqAuthUrl} />
+        <ScoreWorkspace
+          apiBaseUrl={apiBaseUrl}
+          qqCallbackUrl={qqCallbackUrl}
+          qqClientId={qqClientId ?? null}
+        />
       </section>
 
       <section className="score-rules-section" id="score-rules">

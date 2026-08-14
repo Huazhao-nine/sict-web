@@ -35,6 +35,10 @@ jobs:
 
       - name: Build static site
         run: npm run pages:build
+        env:
+          NEXT_PUBLIC_SICT_QQ_CLIENT_ID: ${{ secrets.SICT_QQ_CLIENT_ID }}
+          NEXT_PUBLIC_SICT_QQ_CALLBACK_URL: https://flowerinfire.com/#/sict/auth/callback
+          NEXT_PUBLIC_SICT_API_BASE_URL: https://flowerinfire.com/api/sict
 
       - name: Configure Pages
         uses: actions/configure-pages@v5

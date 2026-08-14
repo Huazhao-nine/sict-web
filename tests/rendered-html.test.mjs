@@ -168,17 +168,17 @@ test("server-renders the complete disclaimer", async () => {
   assert.match(html, /2027 交流群/);
 });
 
-test("server-renders the standalone score-entry preview", async () => {
+test("server-renders the real score registration entry", async () => {
   const response = await render("/score");
   assert.equal(response.status, 200);
   const html = await response.text();
-  assert.match(html, /2027.*沈计登分/s);
-  assert.match(html, /生产联调/);
-  assert.match(html, /沈计专用登录状态/);
-  assert.match(html, /FlowerInFire Hash 回调/);
-  assert.match(html, /\/sict\/auth\/callback/);
-  assert.match(html, /不会调用博客接口/);
-  assert.match(html, /使用 QQ 安全登录 · 待接入/);
+  assert.match(html, /2027.*考研登分/s);
+  assert.match(html, /2027 登分开放/);
+  assert.match(html, /考生信息/);
+  assert.match(html, /成绩证明/);
+  assert.match(html, /隐私加密/);
+  assert.match(html, /提交你的 2027 初试成绩/);
+  assert.doesNotMatch(html, /本地交互预览|不会真正提交|演示模式/);
   assert.match(html, /非官方说明/);
   assert.doesNotMatch(html, /\/qq\/login|\/user\/profile/);
 });

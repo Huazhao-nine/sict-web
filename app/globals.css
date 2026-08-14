@@ -927,7 +927,7 @@ footer { display: grid; min-height: 190px; padding: 50px max(32px, calc((100vw -
 .score-leaderboard-table tbody tr:hover td { background: #faf8f2; }
 .score-leaderboard-table td:first-child strong { color: var(--orange-dark); font-size: 15px; }
 .score-leaderboard-table td:last-child b { color: var(--navy); font-size: 23px; }
-.score-leaderboard-empty { padding: 54px 24px; text-align: center; }
+.score-leaderboard-table .score-leaderboard-empty td { height: auto; padding: 54px 24px; font-family: inherit; text-align: center; }
 .score-leaderboard-empty strong { color: var(--ink); font-size: 16px; }
 .score-leaderboard-empty p { margin: 8px 0 0; color: var(--ink-soft); font-size: 12px; }
 .score-public-leaderboard > footer { padding: 13px 20px; border-top: 1px solid var(--line); background: var(--paper); color: var(--ink-soft); font-size: 10px; line-height: 1.7; text-align: center; }
@@ -973,7 +973,7 @@ footer { display: grid; min-height: 190px; padding: 50px max(32px, calc((100vw -
 .score-demo-note { font-size: 12px; line-height: 1.7; }
 .score-rule-list p { font-size: 14px; }
 
-.score-stat-card { position: sticky; top: 20px; overflow: hidden; border: 1px solid var(--line); background: var(--navy); color: white; }
+.score-stat-card { position: static; align-self: start; overflow: hidden; border: 1px solid var(--line); background: var(--navy); color: white; }
 .score-stat-card > header { display: flex; min-height: 76px; padding: 17px 20px; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,.13); }
 .score-stat-card > header div { display: flex; flex-direction: column; }
 .score-stat-card > header span { color: rgba(255,255,255,.54); font-size: 10px; }

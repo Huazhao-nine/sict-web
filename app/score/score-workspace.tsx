@@ -718,14 +718,14 @@ function PublicLeaderboardTable({ leaderboard }: { leaderboard: PublicLeaderboar
         <b>{leaderboard?.approvedCount ?? 0} 份已核验样本</b>
       </header>
 
-      {rows.length ? (
-        <div className="score-leaderboard-table-wrap">
-          <table className="score-leaderboard-table">
-            <thead>
-              <tr><th>排名</th><th>政治</th><th>英语</th><th>数学</th><th>408</th><th>总分</th></tr>
-            </thead>
-            <tbody>
-              {rows.map((row, index) => (
+      <div className="score-leaderboard-table-wrap">
+        <table className="score-leaderboard-table">
+          <thead>
+            <tr><th>排名</th><th>政治</th><th>英语</th><th>数学</th><th>408</th><th>总分</th></tr>
+          </thead>
+          <tbody>
+            {rows.length ? (
+              rows.map((row, index) => (
                 <tr key={`${row.rank}-${row.totalScore}-${row.politics}-${row.english}-${row.mathematics}-${row.subjectScore}-${index}`}>
                   <td><strong>#{row.rank}</strong></td>
                   <td>{row.politics}</td>
@@ -734,13 +734,13 @@ function PublicLeaderboardTable({ leaderboard }: { leaderboard: PublicLeaderboar
                   <td>{row.subjectScore}</td>
                   <td><b>{row.totalScore}</b></td>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      ) : (
-        <div className="score-leaderboard-empty"><strong>等待首批成绩完成核验</strong><p>管理员核验通过后，成绩会自动进入这里。</p></div>
-      )}
+              ))
+            ) : (
+              <tr className="score-leaderboard-empty"><td colSpan={6}><strong>等待首批成绩完成核验</strong><p>管理员核验通过后，成绩会自动进入这里。</p></td></tr>
+            )}
+          </tbody>
+        </table>
+      </div>
 
       <footer>排名按总分从高到低计算，同分并列；榜单仅代表本站当前自愿提交并已核验的样本。</footer>
     </section>

@@ -167,3 +167,16 @@ test("server-renders the complete disclaimer", async () => {
   assert.match(html, /更正与反馈/);
   assert.match(html, /2027 交流群/);
 });
+
+test("server-renders the standalone score-entry preview", async () => {
+  const response = await render("/score");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /2027.*沈计登分/s);
+  assert.match(html, /前端预览/);
+  assert.match(html, /沈计专用登录状态/);
+  assert.match(html, /不会调用博客接口/);
+  assert.match(html, /QQ 登录 · 等待独立接口/);
+  assert.match(html, /非官方说明/);
+  assert.doesNotMatch(html, /\/qq\/login|\/user\/profile/);
+});

@@ -7,6 +7,7 @@ const primaryNav = [
   { label: "首页", href: "/" },
   { label: "报考指南", href: "/#overview" },
   { label: "历年数据", href: "/data" },
+  { label: "登分", href: "/score" },
   { label: "经验归档", href: "/experiences" },
   { label: "交流与致谢", href: "/#community" },
   { label: "免责声明", href: "/disclaimer" },
@@ -64,6 +65,7 @@ export function SiteFooter() {
       </Link>
       <nav className="footer-nav" aria-label="页脚导航">
         <Link href="/data">历年数据</Link>
+        <Link href="/score">沈计登分</Link>
         <Link href="/experiences">经验归档</Link>
         <Link href="/sources">来源说明</Link>
         <Link href="/disclaimer">免责声明</Link>
